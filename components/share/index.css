@@ -1,0 +1,247 @@
+@charset "UTF-8";
+.lt-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.zmiti-text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis; }
+
+.zmiti-play {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1000;
+  right: .5rem;
+  top: .5rem; }
+  .zmiti-play.rotate {
+    -webkit-animation: rotate 5s linear infinite;
+    animation: rotate 5s linear infinite; }
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+.zmiti-share-main-ui {
+  overflow: hidden;
+  width: 10rem;
+  left: 50% !important;
+  margin-left: -375px;
+  background: #4081dd;
+  opacity: 0;
+  z-index: -1; }
+  .zmiti-share-main-ui.show {
+    opacity: 1;
+    z-index: 1010; }
+  .zmiti-share-main-ui .zmiti-share-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0; }
+  .zmiti-share-main-ui .zmiti-createimg {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 10;
+    height: 80/.84vh;
+    -webkit-transform: scale(0.82);
+    transform: scale(0.82);
+    -webkit-transform-origin: center 10vh;
+    transform-origin: center 10vh; }
+    .zmiti-share-main-ui .zmiti-createimg img {
+      -webkit-transform: scale(0.95, 0.97);
+      transform: scale(0.95, 0.97);
+      width: auto;
+      height: 100%; }
+    .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter-active, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-active {
+      -webkit-transition: 0.4s;
+      transition: 0.4s; }
+    .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-to {
+      -webkit-transform: scale(1);
+      transform: scale(1); }
+    .zmiti-share-main-ui .zmiti-createimg:after {
+      content: '长按保存图片';
+      position: absolute;
+      color: #ca141f;
+      font-size: .4rem;
+      bottom: .4rem;
+      width: .4rem;
+      left: 98%; }
+  .zmiti-share-main-ui .zmiti-share-main {
+    height: 100%;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical; }
+    .zmiti-share-main-ui .zmiti-share-main > div {
+      width: 10rem;
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9); }
+      .zmiti-share-main-ui .zmiti-share-main > div:nth-of-type(1) {
+        -webkit-box-flex: 1;
+        position: relative;
+        border-radius: 10px; }
+        .zmiti-share-main-ui .zmiti-share-main > div:nth-of-type(1):before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+          border-radius: 10px; }
+    .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C {
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical; }
+      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div {
+        width: 100%; }
+        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(1) {
+          margin-top: -20px;
+          margin-left: -4px;
+          -webkit-box-flex: 1;
+          border-bottom-left-radius: 220px; }
+        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) {
+          position: relative;
+          height: 2.5rem; }
+          .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) .zmiti-qrcode-img {
+            width: 2.3rem;
+            position: absolute;
+            right: 0;
+            bottom: 0; }
+          .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) .zmiti-liulian {
+            position: absolute;
+            width: 7rem;
+            bottom: .5rem;
+            left: 0rem; }
+      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-date {
+        color: #9d9d9d;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 0;
+        left: 4.5rem; }
+      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg {
+        width: 2.6rem;
+        height: 2.6rem;
+        background: #fff;
+        border-radius: 1.3rem;
+        position: absolute;
+        top: -1.8571428571rem;
+        padding: 10px;
+        box-sizing: border-box; }
+        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          box-shadow: 2px 0 3px rgba(0, 0, 0, 0.5);
+          border-radius: 1.3rem; }
+        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg img {
+          border-radius: 1.3rem; }
+  .zmiti-share-main-ui .zmiti-share-btns {
+    height: 2.1rem;
+    color: #fff;
+    width: 66%;
+    left: 17%;
+    bottom: 0rem;
+    text-align: center;
+    position: absolute;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: justify;
+    -webkit-box-align: start; }
+    .zmiti-share-main-ui .zmiti-share-btns.restart {
+      -webkit-box-pack: center; }
+    .zmiti-share-main-ui .zmiti-share-btns .zmiti-team {
+      position: absolute;
+      text-decoration: underline;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      bottom: .3rem;
+      color: #ca141f; }
+    .zmiti-share-main-ui .zmiti-share-btns > div {
+      background: #ca141f;
+      line-height: .9rem;
+      border-radius: 6px;
+      width: 2.5rem;
+      font-size: .45rem; }
+    .zmiti-share-main-ui .zmiti-share-btns.btn-enter-active, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-active {
+      -webkit-transition: 0.4s;
+      transition: 0.4s; }
+    .zmiti-share-main-ui .zmiti-share-btns.btn-enter, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-to {
+      opacity: 0; }
+  .zmiti-share-main-ui .zmiti-team-main-ui {
+    z-index: 1010;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+    color: #fffae0;
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 10px);
+    transform: translate3d(0, 0, 10px); }
+    .zmiti-share-main-ui .zmiti-team-main-ui.team-enter-active, .zmiti-share-main-ui .zmiti-team-main-ui.team-leave-active {
+      -webkit-transition: 0.5s;
+      transition: 0.5s; }
+    .zmiti-share-main-ui .zmiti-team-main-ui.team-enter, .zmiti-share-main-ui .zmiti-team-main-ui.team-leave-to {
+      opacity: 0; }
+    .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main {
+      color: #ca141f;
+      margin-top: 1rem; }
+      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -webkit-box-orient: horizontal;
+        width: 9.7rem;
+        font-weight: normal;
+        font-size: .6rem;
+        height: 2rem; }
+        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 > div:nth-of-type(1), .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 > div:nth-of-type(3) {
+          margin-top: 40px; }
+      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section {
+        font-size: .4rem;
+        width: 6.8rem;
+        margin: 0 auto;
+        line-height: .7rem; }
+        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section.zmiti-copyright {
+          position: relative; }
+          .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section.zmiti-copyright:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.2);
+            left: 0;
+            top: 0;
+            display: none; }
+        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section span {
+          padding: 0 6px; }
+      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main .zmiti-back {
+        background: #fff;
+        color: #e05944;
+        width: 2rem;
+        height: .7rem;
+        line-height: .7rem;
+        text-align: center;
+        border-radius: 8px;
+        margin: .5rem auto;
+        font-size: .4rem;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
+
+/*# sourceMappingURL=index.css.map */

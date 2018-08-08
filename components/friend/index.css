@@ -1,0 +1,149 @@
+.lt-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.zmiti-text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+}
+
+.zmiti-play {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1000;
+  right: .5rem;
+  top: .5rem;
+}
+
+.zmiti-play.rotate {
+  -webkit-animation: rotate 5s linear infinite;
+  animation: rotate 5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.zmiti-friend-main-ui {
+  opacity: 0;
+  z-index: -1;
+  background: #fdf7eb;
+}
+
+.zmiti-friend-main-ui > section {
+  padding-bottom: 60px;
+}
+
+.zmiti-friend-main-ui > section .zmiti-index-logo {
+  position: absolute;
+  width: 180px;
+  right: 20px;
+  top: 20px;
+}
+
+.zmiti-friend-main-ui.show {
+  z-index: 1230;
+  opacity: 1;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C {
+  width: 96%;
+  margin: 40px auto;
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: start;
+  -webkit-box-align: start;
+  font-size: 28px;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C > div {
+  margin: 0 10px;
+  -webkit-box-flex: 1;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C > div:nth-of-type(1) {
+  width: 172px;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-nickname {
+  color: #2c4a7c;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-link {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal;
+  margin-top: 10px;
+  -webkit-box-pack: start;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-link > div {
+  margin-right: 20px;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-time {
+  margin: 50px 0;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  color: #dcc;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-like-list {
+  color: #2c4a7c;
+  line-height: 44px;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-like-list img {
+  width: 30px;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-comment {
+  margin-top: 40px;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+.zmiti-friend-main-ui .zmiti-friend-C .zmiti-friend-comment span {
+  color: #2c4a7c;
+}
+
+.zmiti-friend-main-ui .zmiti-copyright {
+  height: 70px;
+  line-height: 70px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #ebd7a4;
+  color: #a2853b;
+  font-size: 26px;
+}
+
+.zmiti-back {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}

@@ -1,0 +1,179 @@
+﻿@import "../css/base.scss";
+$baseColor: #fcffb4;
+$viewW: 750px;
+$bgColor: #fcfff8;
+$color: #fffb88;
+
+.zmiti-upload-main-ui{
+	background: #fff;
+	z-index: 110;
+
+
+	.zmiti-upload-C{
+		@include displayBox(vertical);
+		.zmiti-upload-main{
+			width: 8rem;
+			height:50vh;
+			@include displayBox(vertical);
+			-webkit-box-pack:justify;
+	
+			.zmiti-upload-img{
+				@include pos(r);
+				.zmiti-file {
+					opacity: 0;
+					@include pos(a);
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					z-index: 10;
+				}
+			}
+
+			.zmiti-upload-btn{
+				@include displayBox(horizontal);
+				-webkit-box-pack:justify;
+				@include pos(r);
+				color:#fff;
+				width: 100%;
+				
+				&>div{
+					background: #ca141f;
+					
+					line-height: 1rem;
+					text-align: center;
+					font-size: .45rem;
+					@include br(10px);
+					width: 2.5rem;
+					height: 1rem;
+					@include pos(r);
+					&:before{
+						content:'';
+						@include pos(a);
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						box-shadow: 0 0 40px rgba(202,20,31,1);
+					}
+				}
+			}
+		}
+	}
+
+	.zmiti-upload-bottom{
+		background: rgba(0,0,0,.6);
+		@include pos(a);
+		left: 0;
+		bottom: 0;
+		width: 10rem;
+		height: 3rem;
+		overflow: hidden;
+		z-index: 10;
+		ul{
+			margin-top: .3rem;
+		}
+
+		li{
+			width: 2rem;
+			display: inline-block;;
+			color:#fff;
+			margin: 0  .2rem;
+			&>div{
+				text-align: center;
+				&:nth-of-type(1){
+					width: 2rem;
+					height: 2rem;
+					@include br(10px);
+					margin-bottom: 10px;
+					border:1px solid #fff;
+					&.active{
+						border:2px solid #ca141f;
+					}
+					box-sizing:border-box;
+
+				}
+				&:nth-of-type(2){
+					font-size: 20px;
+				}
+			}
+		}
+
+	}
+	
+
+
+	.zmiti-img-clip-C {
+		z-index: 205;
+		background: rgba(0, 0, 0, .5);
+
+		@at-root.zmiti-photo-loading {
+			@include pos(f);
+			width: 100%;
+			z-index: 400;
+			text-align: center;
+			top: 5rem;
+			font-size: .5rem;
+			color: #fff;
+		}
+
+		&>header {
+			width: 10rem;
+			height: 1.5rem;
+			line-height: 1.5rem;
+			background: #f13e41;
+			@include displayBox(horizontal);
+			color: #fff;
+			-webkit-box-pack: justify;
+
+			&>div {
+				width: 2rem;
+				text-align: center;
+			}
+
+		}
+
+		@include displayBox(vertical);
+
+		.zmiti-clip-img {
+			width: 100%;
+			-webkit-box-flex: 1;
+			@include pos(r);
+
+			&>img {
+				width: 100%;
+				@include pos(a);
+			}
+
+			&:before {
+				content: '';
+				@include pos(a);
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				background: rgba(0, 0, 0, .7);
+				z-index: 1;
+			}
+
+			.zmiti-clip-canvas {
+				@include pos(a);
+				z-index: 2;
+				left: 0;
+				top: 0;
+				border: 2px solid #f13e41;
+				box-sizing: border-box;
+			}
+
+			.zmiti-scan {
+				@include pos(a);
+				left: 0;
+				top: 0;
+				z-index: 10;
+				width: 40px;
+			}
+
+		}
+
+	}
+}

@@ -1,0 +1,188 @@
+.lt-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.zmiti-text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+}
+
+.zmiti-play {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1000;
+  right: .5rem;
+  top: .5rem;
+}
+
+.zmiti-play.rotate {
+  -webkit-animation: rotate 5s linear infinite;
+  animation: rotate 5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.zmiti-index-main-ui {
+  overflow: hidden;
+  width: 10rem;
+  left: 50% !important;
+  margin-left: -375px;
+  background: #4081dd;
+  opacity: 0;
+  z-index: -1;
+}
+
+.zmiti-index-main-ui.show {
+  opacity: 1;
+  z-index: 200;
+}
+
+.zmiti-index-main-ui .zmiti-title {
+  position: absolute;
+  width: 100vw;
+  left: 50%;
+  top: 24vh;
+  z-index: 10;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+
+.zmiti-index-main-ui .zmiti-index-img {
+  position: absolute;
+  bottom: 0;
+  left: -200px;
+  z-index: 8;
+  height: 70vh;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+}
+
+.zmiti-index-main-ui .zmiti-index-img img {
+  width: auto;
+  height: 100%;
+}
+
+.zmiti-index-main-ui .zmiti-index.index-enter-active, .zmiti-index-main-ui .zmiti-index.index-leave-active {
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.zmiti-index-main-ui .zmiti-index.index-enter, .zmiti-index-main-ui .zmiti-index.index-leave-to {
+  opacity: 0;
+}
+
+.zmiti-index-main-ui .zmiti-index canvas {
+  position: absolute;
+  bottom: 100px;
+  z-index: 10;
+}
+
+.zmiti-index-main-ui .zmiti-mask {
+  z-index: 6;
+}
+
+.zmiti-index-main-ui .zmiti-mask.mask-enter-active, .zmiti-index-main-ui .zmiti-mask.mask-leave-active {
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.zmiti-index-main-ui .zmiti-mask.mask-enter, .zmiti-index-main-ui .zmiti-mask.mask-leave-to {
+  opacity: 0;
+}
+
+.zmiti-index-main-ui .zmiti-video {
+  z-index: 10;
+}
+
+.zmiti-index-main-ui .zmiti-index-logo {
+  width: 180px;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9;
+}
+
+.zmiti-index-main-ui .zmiti-entry {
+  width: 2.4rem;
+  text-align: center;
+  line-height: .9rem;
+  border-radius: 30px;
+  position: absolute;
+  left: 3.8rem;
+  bottom: 1.5rem;
+  z-index: 10;
+  -webkit-animation: scale 1s linear infinite alternate;
+  animation: scale 1s linear infinite alternate;
+}
+
+@-webkit-keyframes rotate1 {
+  to {
+    -webkit-transform: rotate(360deg) scale(2);
+    transform: rotate(360deg) scale(2);
+    opacity: 0;
+  }
+}
+
+.zmiti-loading {
+  z-index: 1000;
+}
+
+.zmiti-loading .zmiti-loading-ui {
+  width: 6rem;
+  left: 2rem;
+  position: absolute;
+  top: 6rem;
+}
+
+.zmiti-loading .zmiti-loading-ui .zmiti-loading-bar {
+  width: 2rem;
+  border-radius: 10px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.zmiti-loading .zmiti-loading-ui .zmiti-loading-bar:before {
+  content: '';
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.zmiti-loading .zmiti-loading-ui .zmiti-loading-bar .zmiti-target {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #fff;
+  left: 50%;
+  top: .4rem;
+  position: absolute;
+  margin-left: -0.2rem;
+  -webkit-animation: scale linear 2s infinite alternate;
+  animation: scale linear 2s infinite alternate;
+}
+
+.zmiti-loading .zmiti-loading-ui .zmiti-progress {
+  margin-top: .5rem;
+  text-align: center;
+  color: #fff;
+  font-family: Georgia;
+  font-size: .7rem;
+}

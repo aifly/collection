@@ -1,0 +1,113 @@
+﻿@import "../css/base.scss";
+
+$baseColor: #fcffb4;
+$viewW: 750px;
+$bgColor: #fcfff8;
+$color: #fffb88;
+
+.zmiti-friend-main-ui {
+    opacity: 0;
+    z-index: -1;
+    background: #fdf7eb;
+
+    &>section{
+        padding-bottom: 60px;
+        .zmiti-index-logo {
+            @include pos(a);
+            width: 180px;
+            right: 20px;
+            top: 20px;
+        }
+    }
+
+    &.show {
+        z-index: 1230;
+        opacity: 1;
+    }
+
+    .zmiti-friend-C {
+        width: 96%;
+        margin: 40px auto;
+
+        @include pos(r);
+        @include displayBox(horizontal);
+
+        -webkit-box-pack: start;
+        -webkit-box-align: start;
+        font-size: 28px;
+
+        & > div {
+            margin: 0 10px;
+
+            &:nth-of-type(1) {
+                width: 172px;
+            }
+
+            -webkit-box-flex: 1;
+        }
+
+        .zmiti-friend-nickname {
+            color: #2c4a7c;
+        }
+
+        .zmiti-friend-link {
+            @include displayBox(horizontal);
+
+            margin-top: 10px;
+            -webkit-box-pack: start;
+
+            & > div {
+                margin-right: 20px;
+            }
+        }
+
+        .zmiti-friend-time {
+            margin: 50px 0;
+
+            @include displayBox(horizontal);
+
+            -webkit-box-pack: justify;
+            color: #dcc;
+        }
+
+        .zmiti-friend-like-list {
+            color: #2c4a7c;
+            line-height: 44px;
+
+            img {
+                width: 30px;
+            }
+        }
+        .zmiti-friend-comment{
+            margin-top: 40px;
+            font-size:28px;
+            line-height: 40px;
+            span{
+                color:#2c4a7c;
+            }
+        }
+    }
+
+    .zmiti-copyright{
+        height: 70px;
+        line-height: 70px;
+        @include pos(a);
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        border-top:1px solid #ebd7a4;
+        color:#a2853b;
+        font-size:26px;
+
+    }
+}
+
+.zmiti-back{
+    width:100px;
+    height: 100px;
+    @include pos(f);
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}

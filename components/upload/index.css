@@ -1,0 +1,176 @@
+/*.ant-btn:focus, .ant-btn:hover,.ant-input:focus, .ant-input:hover {
+    background-color: #fff;
+    border-color: #bf1616;
+    box-shadow: 0 0 0 2px rgba(191, 22, 22, 0.1);
+}*/
+.lt-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.zmiti-text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis; }
+
+.zmiti-play {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1000;
+  right: .5rem;
+  top: .5rem; }
+  .zmiti-play.rotate {
+    -webkit-animation: rotate 5s linear infinite;
+    animation: rotate 5s linear infinite; }
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+.zmiti-upload-main-ui {
+  background: #fff;
+  z-index: 110; }
+  .zmiti-upload-main-ui .zmiti-upload-C {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical; }
+    .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload-main {
+      width: 8rem;
+      height: 50vh;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-pack: justify; }
+      .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload-main .zmiti-upload-img {
+        position: relative; }
+        .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload-main .zmiti-upload-img .zmiti-file {
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          z-index: 10; }
+      .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload-main .zmiti-upload-btn {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: justify;
+        position: relative;
+        color: #fff;
+        width: 100%; }
+        .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload-main .zmiti-upload-btn > div {
+          background: #ca141f;
+          line-height: 1rem;
+          text-align: center;
+          font-size: .45rem;
+          border-radius: 10px;
+          width: 2.5rem;
+          height: 1rem;
+          position: relative; }
+          .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload-main .zmiti-upload-btn > div:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 40px #ca141f; }
+  .zmiti-upload-main-ui .zmiti-upload-bottom {
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    height: 3rem;
+    overflow: hidden;
+    z-index: 10; }
+    .zmiti-upload-main-ui .zmiti-upload-bottom ul {
+      margin-top: .3rem; }
+    .zmiti-upload-main-ui .zmiti-upload-bottom li {
+      width: 2rem;
+      display: inline-block;
+      color: #fff;
+      margin: 0  .2rem; }
+      .zmiti-upload-main-ui .zmiti-upload-bottom li > div {
+        text-align: center; }
+        .zmiti-upload-main-ui .zmiti-upload-bottom li > div:nth-of-type(1) {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #fff;
+          box-sizing: border-box; }
+          .zmiti-upload-main-ui .zmiti-upload-bottom li > div:nth-of-type(1).active {
+            border: 2px solid #ca141f; }
+        .zmiti-upload-main-ui .zmiti-upload-bottom li > div:nth-of-type(2) {
+          font-size: 20px; }
+  .zmiti-upload-main-ui .zmiti-img-clip-C {
+    z-index: 205;
+    background: rgba(0, 0, 0, 0.5);
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical; }
+    .zmiti-photo-loading {
+      position: fixed;
+      width: 100%;
+      z-index: 400;
+      text-align: center;
+      top: 5rem;
+      font-size: .5rem;
+      color: #fff; }
+    .zmiti-upload-main-ui .zmiti-img-clip-C > header {
+      width: 10rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      background: #f13e41;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -webkit-box-orient: horizontal;
+      color: #fff;
+      -webkit-box-pack: justify; }
+      .zmiti-upload-main-ui .zmiti-img-clip-C > header > div {
+        width: 2rem;
+        text-align: center; }
+    .zmiti-upload-main-ui .zmiti-img-clip-C .zmiti-clip-img {
+      width: 100%;
+      -webkit-box-flex: 1;
+      position: relative; }
+      .zmiti-upload-main-ui .zmiti-img-clip-C .zmiti-clip-img > img {
+        width: 100%;
+        position: absolute; }
+      .zmiti-upload-main-ui .zmiti-img-clip-C .zmiti-clip-img:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1; }
+      .zmiti-upload-main-ui .zmiti-img-clip-C .zmiti-clip-img .zmiti-clip-canvas {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        border: 2px solid #f13e41;
+        box-sizing: border-box; }
+      .zmiti-upload-main-ui .zmiti-img-clip-C .zmiti-clip-img .zmiti-scan {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        width: 40px; }
+
+/*# sourceMappingURL=index.css.map */
