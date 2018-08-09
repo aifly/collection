@@ -6,7 +6,7 @@
   "author": "fly",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --port 4038",
+    "start": "webpack-dev-server --hot --inline --port 4043",
     "build": "webpack -w --config webpack.build.config.js"
   },
   "dependencies": {

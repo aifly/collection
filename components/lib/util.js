@@ -38,6 +38,9 @@ var zmitiUtil = {
 
 		var code_durl = encodeURIComponent(durl);
 
+		if(durl.indexOf('localhost:')>-1){//本地调用，不用请远程请求接口。
+			return;
+		}
 		//alert(title+' \n' + desc + '\n');
 
 		$.ajax({

@@ -13,10 +13,11 @@ export default class Point {
 
         this.iNow = 0;
 
-        this.speed = Math.random() * 2;
+        
         this.context = option.context;
 
-        this.size = Math.random() * 10;
+        this.size =option.size || Math.random() * 10;
+        this.speed = Math.random() * this.size/5;
 
         this.speedX = Math.random();
 
@@ -43,6 +44,8 @@ export default class Point {
         context.rotate = rotate;
         context.drawImage(img, x, y, size, size);
         context.restore();
+
+        
 
     }
     update() {

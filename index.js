@@ -1,11 +1,7 @@
 import Vue from "vue";
 import './components/css/index.css';
 import Index from './components/index/index';
-import Introduce from './components/introduce/index';
-import Friend from './components/friend/index';
-import Detail from './components/detail/index';
-import Main from './components/main/index';
-import Music from './components/music/index';
+import Form from './components/form/index';
 import Obserable from './components/lib/obserable';
 import {
 	imgs
@@ -59,9 +55,7 @@ new Vue({
 		*/
 		template: `<div>
 		<Index :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Index>
-		<Introduce :pv='pv' v-if='show && !isShare'  :obserable='obserable'></Introduce>
-		<Detail :pv='pv' v-if='show && !isShare'  :obserable='obserable'></Detail>
-		<Friend :pv='pv' v-if='show && !isShare'  :obserable='obserable'></Friend>
+		<Form :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Form>
 		<div  v-if='!loaded' :style='{background:"#158ae4"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
 				 <a href="#">
@@ -124,11 +118,8 @@ new Vue({
 	},
 	components: {
 		Index,
-		Music,
-		Main,
-		Introduce,
-		Detail,
-		Friend
+		Form
+		
 	},
 	mounted() {
 
