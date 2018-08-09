@@ -5,9 +5,16 @@
 	mount:'./assets/images/mount.png',
 	title:'./assets/images/title.png',
 	moon:'./assets/images/moon.png',
+	moon1:'./assets/images/moon1.png',
 	plane:'./assets/images/plane.png',
 	light:'./assets/images/light.png',
+	subtitle:'./assets/images/subtitle.png',
+	submitBg:'./assets/images/submit-bg.png',
+	submitBtn:'./assets/images/submit-btn.png',
 	send:'./assets/images/send.png',
+	help:'./assets/images/help.png',
+	add:'./assets/images/add.png',
+
 	
 	
 	

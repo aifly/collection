@@ -1,6 +1,48 @@
 <template>
 	<transition name='main'>
-		
+		<div class="zmiti-form-main-ui lt-full" :class="{'show':show}">
+			<div class="zmiti-moon1">
+				<img :src="imgs.moon1" alt="">
+			</div>
+
+			<div class="zmiti-plane">
+				<img :src="imgs.plane" alt="">
+			</div>
+
+			<div class="zmiti-subtitle">
+				<img :src="imgs.subtitle" alt="">
+			</div>
+
+			<div :key="i" class="zmiti-name-C" v-for='(name,i) in names'>
+				<div class="zmiti-name-input">
+					<input type="text" v-model='names[i]'/>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="zmiti-add" v-if='i===0' v-tap='[addName]'>
+					<img :src="imgs.add" alt="">
+				</div>
+			</div>
+			<div class="zmiti-tips">
+				<div>
+					提交名称要求<img :src="imgs.help" />
+				</div>
+				<div class="">
+					填写名字的含义 
+					<span></span>
+				</div>
+			</div>
+			
+			<div class="zmiti-mean-input">
+				<textarea>
+					
+				</textarea>
+			</div>
+
+
+		</div>
 	</transition>
 </template>
 
@@ -21,6 +63,7 @@
 				showTeam: false,
 				show: true,
 				msg:"",
+				names:[''],
 				showMsg:'',
 				errorMsg:'',
 				viewW: window.innerWidth,
@@ -36,44 +79,7 @@
 					mobile:'',
 					telphone:'',
 					email:''
-				},
-				provinceList:[
-					"--请选择省份--",
-					"北京",
-					"天津",
-					"河北",
-					"山西",
-					"内蒙古",
-					"辽宁",
-					'吉林',
-					'黑龙江',
-					'上海',
-					'江苏',
-					'浙江',
-					'安徽',
-					'福建',
-					'江西',
-					'山东',
-					'河南',
-					'湖北',
-					'湖南',
-					'广东',
-					'广西',
-					'海南',
-					'重庆',
-					'四川',
-					'贵州',
-					'云南',
-					'西藏',
-					'陕西',
-					'甘肃',
-					'青海',
-					'宁夏',
-					'新疆',
-					'兵团',
-					'中国文明网'
-				],
-				showBtn:true
+				}
 			}
 
 			
@@ -87,7 +93,10 @@
 				　var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
 				return reg.test(this.formUser.email);
 			},
-			 submit(){
+			addName(){
+				this.names.push('');
+			},
+			submit(){
 
 				 var s = this;
 
