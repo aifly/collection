@@ -4,12 +4,34 @@ $viewW: 750px;
 $bgColor: #fcfff8;
 $color: #fffb88;
 
+body{
+	overflow-x: hidden;
+}
+
 .zmiti-form-main-ui {
 	overflow: hidden;
 	background: #0e0c3e;
-	opacity:0;
-	z-index: -1;
 	position: absolute !important;
+	width:$viewW !important;
+	left:50%;
+	margin-left: -375px;
+	canvas{
+		@include pos(a);
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+
+	&.main-enter-active,
+	&.main-leave-active {
+		@include transition(1s);
+	}
+	
+	z-index: 12100;
+	&.main-enter,
+	&.main-leave-to {
+		opacity:1;
+	}
 
 	&.show{
 		opacity:1;
@@ -30,7 +52,7 @@ $color: #fffb88;
 
 	.zmiti-subtitle{
 		width: 550px;
-		margin: 100px auto 0;
+		margin: 0 auto 0;
 	}
 
 	.zmiti-name-C{
@@ -38,12 +60,12 @@ $color: #fffb88;
 		width: $viewW;
 		@include pos(r);
 		margin-top: 40px;
-		.zmiti-add{
+		.zmiti-add,
+		.zmiti-reduce {
 			@include pos(a);
 			right: 5px;
 			width: 50px;
 			top:15px;
-
 		}
 		&>.zmiti-name-input{
 			width: 620px;
@@ -59,25 +81,25 @@ $color: #fffb88;
 
 				border:3px solid $color;
 				&:nth-of-type(1){
-					left: 64px;
+					left: 63px;
 					top: 0;
 					border-right:none;
 					border-bottom:none;
 				}
 				&:nth-of-type(2){
-					left: 661px;
+					left: 664px;
 					top: 0;
 					border-left:none;
 					border-bottom:none;	
 				}
 				&:nth-of-type(3){
-					left:64px;
+					left:63px;
 					top:60px;
 					border-top:none;
 					border-right:none;
 				}
 				&:nth-of-type(4){
-					left: 661px;
+					left: 664px;
 					top: 60px;
 					border-left:none;
 					border-top:none;	
@@ -90,15 +112,16 @@ $color: #fffb88;
 				outline: none;
 				background:transparent;
 				border:none;
-				color:#fff;
+				color:$color;
+				
 			}
 		}
 	}
-
+	$textColor:#50fefb;
 	.zmiti-tips{
 		width: 640px;
 		margin: 20px auto 0;
-		color:#fff;
+		color:$textColor;
 		img{
 			width: 40px;
 			margin-left: 10px;
@@ -120,6 +143,9 @@ $color: #fffb88;
 
 			@include transition(.2s);
 			@include transform(rotate(180deg));
+			&.rotate{
+				@include transform(rotate(0));
+			}
 			vertical-align: middle;
 
 			@include pos(a);
@@ -147,18 +173,77 @@ $color: #fffb88;
 
 		}
 	}
+
+	.zmiti-mean-input{
+		width: 640px;
+		margin: 30px auto 0;
+		overflow: hidden;
+		@include transition(.2s);
+		&.hide{
+			height: 0;
+		}
+
+		textarea{
+			width: 99%;
+			font-family: "Helvetica Neue",
+			'Helvetica',
+			"Microsoft YaHei",
+			arial,
+			sans-serif;
+			height: 200px;
+			background:transparent;
+			border:none;
+			outline: none;
+			border:1px solid $color;
+			color:$color;
+			font-size:30px;
+			padding: 20px;
+			box-sizing: border-box;
+
+		}
+	}
+
+	.zmiti-form-main{
+		@include pos(a);
+		height: 57%;
+		top:100px;
+		width: 100%;
+		z-index: 100;
+		overflow: hidden;
+		box-sizing: border-box;
+		padding-bottom: 50px;
+	}
+
+	
+
+	.zmiti-username,
+	.zmiti-mobile {
+		width: 640px;
+		color:$textColor;
+		margin: 30px auto 0;
+		border-bottom: 1px solid #286e89;
+		input{
+			background: transparent;
+			height: 50px;
+			width: 500px;
+			border: none;
+			outline: none;
+			color:$textColor;
+			font-size:30px;
+		}
+	}
+
+	.zmiti-submit-C{
+		@include pos(a);
+		bottom: 0;
+		.zmiti-submit-btn{
+			width: 450px;
+			@include pos(a);
+			z-index: 10;
+			bottom: 40px;
+			left: 150px;
+		}
+	}
  
 }
 
-
-
-@-webkit-keyframes ar {
-	from {
-		margin-top: -5px;
-	}
-
-	to {
-		margin-top: 5px;
-	}
-
-}

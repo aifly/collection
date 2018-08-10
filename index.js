@@ -6,7 +6,7 @@ import Obserable from './components/lib/obserable';
 import {
 	imgs
 } from './components/lib/assets'
-import zmitiUtil from './components/lib/util.js'
+import {zmitiUtil} from './components/lib/util.js'
 import $ from 'jquery';
 import './components/lib/touch.js'
 import vueTap from 'vue-js-tap';

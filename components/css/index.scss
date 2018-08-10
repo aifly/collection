@@ -26,7 +26,7 @@ body {
 	}
 
 }
-
+$viewW:750px;
 img {
 	border: none;
 	vertical-align: middle;
@@ -38,6 +38,10 @@ img {
 	z-index: 1000;
 	//@include transform(scale(1.2));
 	@include pos(f);
+
+	width: $viewW !important;
+	left: 50% !important;
+	margin-left: -375px;;
 
 	.zmiti-loading-ui {
 		width: 6rem;
