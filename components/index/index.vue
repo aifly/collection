@@ -1,7 +1,7 @@
 <template>
 	<div ref='page'  class="lt-full zmiti-index-main-ui "   :class="{'show':show}" >
 		
-		<div class="zmiti-moon" :class="{'hide':starting}">
+		<div class="zmiti-moon" :class="{'hide':!showOthers}">
 			<img :src="imgs.moon" alt="">
 		</div>
 
@@ -12,9 +12,17 @@
 		<div class="zmiti-light" v-show='showLight'>
 			<img :src="imgs.light" alt="">
 		</div>
+		
+		<transition name='jiasu'>
+			
+			<div class="zmiti-jiasu" v-if='showjiasu' v-tap='[jiasu]'>
+				<img :src="imgs.jiasu" alt="">
+				<img :src="imgs.jiasu1" alt="" :class="{'active':maxHeight<0}" />
+			</div>
+		</transition>
 
 
-		<div class="zmiti-title" :class="{'hide':starting}">
+		<div class="zmiti-title" :class="{'hide':!showOthers}">
 			<img :src="imgs.title" alt="">
 
 			<div class="zmiti-logos">
@@ -45,7 +53,7 @@
 			</div>
 
 		</div>
-		<div class="zmiti-start" v-tap='[start]' v-show ='!starting'>
+		<div class="zmiti-start" v-tap='[start]' v-show ='showStartBtn'>
 			<img :src="imgs.start" alt="">
 		</div>
 
@@ -71,6 +79,11 @@
 				{{c}}
 			</div>
 		</div>
+		
+		
+		<div class="zmiti-submit-bg" :class="{'active':maxHeight<0}">
+			<img :src="imgs.submitBg" alt="">
+		</div>
 	</div>
 </template>
 
@@ -89,13 +102,17 @@
 				transY:0,
 				pointH:0,
 				points:[],
+				showStartBtn:false,
 				index:-1,
+				showOthers:true,
 				showRemark:false,
 				organizationArr:window.organizationArr,
 				showLight:false,
 				starting:false,
 				planeClass:'',
 				show:true,
+				maxHeight:80,
+				showjiasu:false,
 				showIndexMask:false,
 				viewW:Math.min(window.innerWidth,750),
 				viewH:window.innerHeight
@@ -105,6 +122,31 @@
 		},
 		
 		methods:{
+
+			jiasu(){
+				//加速球
+				clearInterval(this.t);
+				this.t = null;
+				this.index = -1;
+				this.maxHeight = -300;
+
+				var {obserable} = this;
+				setTimeout(()=>{
+					obserable.trigger({
+						type:'showForm'
+					})
+					this.starting = false;
+				},3000)
+
+
+				setTimeout(()=>{
+					this.showjiasu = false;
+					this.t  && clearInterval(this.t);
+				},1000)
+
+
+
+			},
 
 			imgStart(e){
 				e.preventDefault(); 
@@ -121,6 +163,10 @@
 			},
 			start(){
 				this.starting = true;
+
+				this.showStartBtn = false;
+				
+				this.showOthers = false;
 				this.planeLeave();
 			},
 			initDocket(){
@@ -176,29 +222,36 @@
 							i%=4;
 							h1 = 500;
 							h -= 8;
-
 						
 							defaultScale+=.0005;
 							scale = Math.min(defaultScale,2);
 							
 							x = Math.max(x,(750-258/scale)/2);
-							h = Math.max(h,80);
+							h = Math.max(h,this.maxHeight);
 						
 							if(h <= 80 && !isChange){
 								isChange = true;
 								this.showRemark = true;
 								this.index++;
 
+								this.showjiasu = true;
+
 								
 
-								var t = setInterval(()=>{
+								this.t = setInterval(()=>{
 									
 									if(this.index>=5){
-										this.index =5;
-										this.obserable.trigger({
-											type:'showForm'
-										})
-										clearInterval(t);
+										
+										this.showjiasu = false;
+										this.maxHeight = -300;
+										clearInterval(this.t);
+										this.index = -1;
+										setTimeout(()=>{
+											this.obserable.trigger({
+												type:'showForm'
+											});
+											this.starting = false;
+										},2000)
 										return;
 									}else{
 										this.index++;
@@ -262,7 +315,7 @@
 				this.planeClass = 'active';
 				setTimeout(() => {
 					this.showLight = true;
-					
+					this.showStartBtn = true;
 				}, 600);
 				
 			}, 1000);

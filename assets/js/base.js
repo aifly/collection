@@ -21,6 +21,11 @@
 	start:'./assets/images/start.png',
 	cloud:'./assets/images/cloud.png',
 	organization:'./assets/images/organization.png',
+	jiangxiang:'./assets/images/jiangxiang.png',
+	yaoqiu:'./assets/images/yaoqiu.png',
+	car:'./assets/images/car.png',
+	jiasu:'./assets/images/jiasu.png',
+	jiasu1:'./assets/images/jiasu1.png',
 	submitSuccess:'./assets/images/submit-success.png',
 }
 

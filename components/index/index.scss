@@ -26,6 +26,49 @@ $bgColor: #4081dd;
         z-index: 200;
     }
 
+    .zmiti-submit-bg{
+        @include  pos(a);
+        z-index: 100;
+        left: 0;
+        top:100%;
+
+        &.active{
+            @include transform(translate3d(0,-100%,0));
+            @include  transition(3s);
+        }
+    }
+
+    .zmiti-jiasu{
+        @include pos(a);
+        width: 120px;
+        z-index: 100;
+        top: 100px;
+        right: 30px;
+        &.jiasu-enter-active, &.jiasu-leave-active {
+            @include transition(.5s 1s);
+        }
+
+        &.jiasu-enter, &.jiasu-leave-to {
+            opacity: 0;
+        }
+        &>img{
+            &:nth-of-type(2){
+                @include pos(a);
+                left: 0;
+                top:0;
+
+                &.active{
+                    @include animation(rotate 1s infinite);
+                }
+            }
+
+            -webkit-keyframes rotate{
+                to{
+                    @include transform(rotate(720deg));
+                }
+            }
+        }
+    }
     .zmiti-bottom {
         @include pos(a);
 

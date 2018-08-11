@@ -10,6 +10,7 @@
 			<div class="zmiti-plane">
 				<img :src="imgs.plane" alt="">
 			</div>
+
 			<section  ref='page' class="zmiti-form-main">
 				<div>
 					<div class="zmiti-subtitle">
@@ -32,11 +33,11 @@
 					</div>
 					<div class="zmiti-tips">
 						<div>
-							提交名称要求<img :src="imgs.help" />
+							提交名称要求<img :src="imgs.help" @touchstart='imgStart' v-tap='[showYaoQiu]'/>
 						</div>
-						<div class="">
+						<div class="" v-tap='[toggleMeanInput]'>
 							填写名字的含义 
-							<span :class="{'rotate':showMeanInput}" v-tap='[toggleMeanInput]'></span>
+							<span :class="{'rotate':showMeanInput}" ></span>
 						</div>
 					</div>
 					
@@ -60,8 +61,22 @@
 				<div class="zmiti-submit-btn" v-tap='[submit]'>
 					<img :src="imgs.submitBtn" alt="">
 				</div>
-			</div>
 
+				<div class="zmiti-car">
+					<img :src="imgs.car" alt="">
+
+					<div class="zmiti-car-tips">
+						每天抽取6位网友
+					</div>
+				</div>
+			</div>
+			<Toast :errorMsg='errorMsg'></Toast>
+			
+			<div v-if='showImg' class="zmiti-mask lt-full">
+				<div v-tap='[hideMask]'>
+					<img :src="showImg" alt="">
+				</div>
+			</div>
 		</div>
 	</transition>
 </template>
@@ -83,12 +98,12 @@
 			return {
 				imgs,
 				showTeam: false,
-				show: true,
+				show:true,
 				username:'',
+				showImg:'',
 				mobile:'',
 				msg:"",
 				meaning:'',
-				
 				names:[''],
 				showMsg:'',
 				errorMsg:'',
@@ -116,17 +131,33 @@
 			Toast
 		},
 		methods: {
+			imgStart(e){
+				e.preventDefault(); 
+			},
 			toggleMeanInput(){
 				this.showMeanInput = !this.showMeanInput;
 				setTimeout(()=>{
 					this.scroll.refresh();
 				},400)
 			},
+			hideMask(){
+				this.showImg =  '';
+
+			},
 			regEmail(){
 				var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
 				return reg.test(this.formUser.email);
 			},
 			addName(){
+				if(this.names.length>=3){
+					this.errorMsg = '您最多可提交3个名字';
+
+
+					setTimeout(()=>{
+						this.errorMsg = '';
+					},2000)
+					return;
+				}
 				this.names.push('');
 				setTimeout(()=>{
 					this.scroll.refresh();
@@ -168,7 +199,12 @@
 				canvas.height = this.viewH;
 				return canvas;
 			},
+			showYaoQiu(){
+				this.showImg = imgs.yaoqiu;
+			},
 			initCanvas(){//
+
+				return;
 				var canvas = this.setSize();
 				var context = canvas.getContext('2d');
 				var img = new Image();

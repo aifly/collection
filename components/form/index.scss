@@ -30,13 +30,20 @@ body{
 	z-index: 12100;
 	&.main-enter,
 	&.main-leave-to {
-		opacity:1;
+		opacity:0;
 	}
 
 	&.show{
 		opacity:1;
 		z-index: 202;
 	}
+
+	.zmiti-mask{
+		background:rgba(0,0,0,.5);
+		z-index: 400;
+		@include displayBox(horizontal);
+	}
+
 	.zmiti-moon1{
 		@include pos(a);
 		width: 150px;
@@ -53,6 +60,41 @@ body{
 	.zmiti-subtitle{
 		width: 550px;
 		margin: 0 auto 0;
+	}
+
+	.zmiti-car{
+		@include pos(a);
+		width:100%;
+		text-align: center;
+		top: 50px;
+
+		img{
+			width: 200px;
+		}
+
+		.zmiti-car-tips{
+			padding:14px 30px;
+			color:#fde966;
+			border:1px solid #50fefb;
+			@include pos(a);
+			top: -100%;
+			left:50%;
+			@include transform(translate3d(-50%,0,0));
+			background:rgba(80,254,251,.2);
+			@include br(10px);
+
+			&:before{
+				content:"";
+				@include pos(a);
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				box-shadow:	0 0 20px rgba(80,254,251,.2) inset,0 0 20px rgba(80,254,251,.2);			
+			}
+
+		}
+		
 	}
 
 	.zmiti-name-C{

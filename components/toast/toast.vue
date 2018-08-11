@@ -23,7 +23,7 @@
 		background: rgba(0,0,0,.5);
 		color:#fff;
 		border-radius: .3rem;
-		padding:.3rem .5rem;
+		padding:.3rem .4rem .3rem .7rem;
 		left: 50%;
 		z-index: 111111;
 		top: 50%;
@@ -41,7 +41,9 @@
 		margin-right: 10px;
 		border-radius: 50%;
 		background:#00ff12;
-		position: relative;
+		position: absolute;
+		left: 12px;
+		top: .4rem;
 		
 	}
 	.zmiti-toast-main-ui .success:before{
@@ -66,7 +68,9 @@
 		margin-right: 10px;
 		border-radius: 50%;
 		background:#f00;
-		position: relative;
+		position: absolute;
+		left: 12px;
+		top: .4rem;
 		
 	}
 	.zmiti-toast-main-ui .error:before{
