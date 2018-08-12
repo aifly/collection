@@ -33,7 +33,6 @@ body {
 
 .zmiti-form-main-ui {
   overflow: hidden;
-  background: #0e0c3e;
   position: absolute !important;
   width: 750px !important;
   left: 50%;
@@ -80,16 +79,44 @@ body {
     .zmiti-form-main-ui .zmiti-car img {
       width: 200px; }
     .zmiti-form-main-ui .zmiti-car .zmiti-car-tips {
-      padding: 14px 30px;
+      padding: 0 30px;
       color: #fde966;
+      height: 60px;
+      line-height: 60px;
       border: 1px solid #50fefb;
       position: absolute;
-      top: -100%;
-      left: 50%;
+      width: 300px;
+      top: -70%;
+      left: 45%;
       -webkit-transform: translate3d(-50%, 0, 0);
       transform: translate3d(-50%, 0, 0);
-      background: rgba(80, 254, 251, 0.2);
+      background: #50fefb;
+      background: #19365d;
       border-radius: 10px; }
+      .zmiti-form-main-ui .zmiti-car .zmiti-car-tips > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        overflow: hidden; }
+      .zmiti-form-main-ui .zmiti-car .zmiti-car-tips ul {
+        -webkit-animation: move 8s infinite;
+        animation: move 8s infinite; }
+@-webkit-keyframes move {
+  25% {
+    -webkit-transform: translate3d(0, -60px, 0);
+    transform: translate3d(0, -60px, 0); }
+  50% {
+    -webkit-transform: translate3d(0, -120px, 0);
+    transform: translate3d(0, -120px, 0); }
+  75% {
+    -webkit-transform: translate3d(0, -180px, 0);
+    transform: translate3d(0, -180px, 0); }
+  100% {
+    -webkit-transform: translate3d(0, -240px, 0);
+    transform: translate3d(0, -240px, 0); } }
       .zmiti-form-main-ui .zmiti-car .zmiti-car-tips:before {
         content: "";
         position: absolute;
@@ -98,6 +125,21 @@ body {
         left: 0;
         top: 0;
         box-shadow: 0 0 20px rgba(80, 254, 251, 0.2) inset, 0 0 20px rgba(80, 254, 251, 0.2); }
+      .zmiti-form-main-ui .zmiti-car .zmiti-car-tips:after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 50%;
+        border: 1px solid #50fefb;
+        border-left: none;
+        border-top: none;
+        margin-left: -15px;
+        background: #50fefb;
+        background: #19365d;
+        bottom: -16px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg); }
   .zmiti-form-main-ui .zmiti-name-C {
     width: 750px;
     position: relative;
@@ -215,7 +257,7 @@ body {
       box-sizing: border-box; }
   .zmiti-form-main-ui .zmiti-form-main {
     position: absolute;
-    height: 57%;
+    height: 660px;
     top: 100px;
     width: 100%;
     z-index: 100;

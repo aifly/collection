@@ -30,7 +30,7 @@ var zmitiUtil = {
 		var s = this;
 
 		var img = window.baseUrl + '/assets/images/300.jpg';
-
+		//img = 'http://h5.zmiti.com/public/collection/assets/images/300.jpg';
 		var appId = this.wxInfo().wxappid;
 
 
@@ -41,10 +41,11 @@ var zmitiUtil = {
 		if(durl.indexOf('localhost:')>-1){//本地调用，不用请远程请求接口。
 			return;
 		}
-		//alert(title+' \n' + desc + '\n');
+		//alert(title+' \n' + desc + '\n')
 
 		$.ajax({
 			type: 'get',
+			url: "http://api.zmiti.com/weixin/jssdk.php?type=signature&durl=" + code_durl,
 			url: "http://h5.zhongguowangshi.com/tree/weixin/jssdk.php?type=signature&durl=" + code_durl + '&worksid=' + window.customid,
 			dataType: 'jsonp',
 			jsonp: "callback",

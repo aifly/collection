@@ -58,7 +58,7 @@ $bgColor: #4081dd;
                 top:0;
 
                 &.active{
-                    @include animation(rotate 1s infinite);
+                    @include animation(rotate 1s linear infinite);
                 }
             }
 
@@ -137,6 +137,13 @@ $bgColor: #4081dd;
         left: 50%;;
         @include transform(translate(-50%,0));
         z-index: 102;
+        @include animation(shake 1s linear infinite alternate);
+    }
+
+    @-webkit-keyframes shake{
+        to{
+            @include transform(translate3d(-50%,-10px,0));
+        }
     }
 
 

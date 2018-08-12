@@ -33,7 +33,7 @@
 					</div>
 					<div class="zmiti-tips">
 						<div>
-							提交名称要求<img :src="imgs.help" @touchstart='imgStart' v-tap='[showYaoQiu]'/>
+							提交名称要求<img :src="imgs.help" @touchstart='imgStart' v-tap='[showDialog,imgs.yaoqiu]'/>
 						</div>
 						<div class="" v-tap='[toggleMeanInput]'>
 							填写名字的含义 
@@ -56,7 +56,7 @@
 				</div>
 			</section>
 
-			<div class="zmiti-submit-C">
+			<div class="zmiti-submit-C" v-if='showSubmit'>
 				<img :src="imgs.submitBg" alt="">
 				<div class="zmiti-submit-btn" v-tap='[submit]'>
 					<img :src="imgs.submitBtn" alt="">
@@ -65,8 +65,16 @@
 				<div class="zmiti-car">
 					<img :src="imgs.car" alt="">
 
-					<div class="zmiti-car-tips">
-						每天抽取6位网友
+					<div class="zmiti-car-tips" v-tap='[showDialog,imgs.jiangxiang]'>
+						<div>
+							<ul>
+								<li>快来给我起名吧</li>
+								<li>每天抽取6名幸运网友</li>
+								<li>奖品探月征名活动车模</li>
+								<li>点击查看</li>
+								<li>快来给我起名吧</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -98,12 +106,13 @@
 			return {
 				imgs,
 				showTeam: false,
-				show:true,
+				show:false,
 				username:'',
 				showImg:'',
 				mobile:'',
 				msg:"",
 				meaning:'',
+				showSubmit:true,
 				names:[''],
 				showMsg:'',
 				errorMsg:'',
@@ -144,6 +153,15 @@
 				this.showImg =  '';
 
 			},
+			isPoneAvailable(val) {
+	            var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+	            if (!myreg.test(val)) {
+	                return false;
+	            } else {
+	                return true;
+	            }
+	        },
+
 			regEmail(){
 				var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
 				return reg.test(this.formUser.email);
@@ -172,24 +190,61 @@
 			submit(){
 				var s = this;
 				var d = new Date().getTime();
-				$.ajax({
-					url:'http://120.26.42.181:8016/api.ashx?act=postlunarrover',
-					data:{
-						username:s.names[0],
-						mobile:s.mobile,
-						name:s.username,
-						meaning:s.meaning,
-						timestamp:d,
-						signature:SHA1('jlsjflasl7887KJJLJ988welKds&'+s.mobile+'&'+d)
-					},
-					type:'post',
-					success(data){
-						if(typeof data === 'string'){
-							data = JSON.parse(data);
-							console.log(data);
-						}
+				if(!s.isPoneAvailable(s.mobile)){
+					s.errorMsg = '手机号码不合法';
+					setTimeout(()=>{
+						s.errorMsg = '';
+					},2000)
+					return
+				}
+				if(s.names.length === 1 && !s.names[0]){
+
+					s.errorMsg = '名字不能为空';
+					setTimeout(()=>{
+						s.errorMsg = '';
+					},2000)
+					return	
+				}
+
+				s.names.map((name,i)=>{
+					if(name){
+						$.ajax({
+							url:'http://120.26.42.181:8016/api.ashx?act=postlunarrover',
+							 dataType: 'JSON',
+		            		//contentType: "application/json",
+							data:JSON.stringify({
+								username:name,
+								mobile:s.mobile,
+								name:s.username,
+								meaning:s.meaning,
+								timestamp:d,
+								signature:SHA1('jlsjflasl7887KJJLJ988welKds&'+s.mobile+'&'+d)
+							}),
+							type:'post',
+							success(data){
+								if(typeof data === 'string'){
+									data = JSON.parse(data);
+								}
+								if(data.Status === 1){
+									s.showImg = imgs.submitSuccess;
+									s.names = [''];
+									s.mobile = '';
+									s.username = '';
+									s.meaning  = '';
+
+
+								}else{
+									s.errorMsg = '您已经提交了信息'
+									setTimeout(()=>{
+										s.errorMsg = '';
+									},1000)
+								}
+							}
+						})
 					}
 				})
+
+				
 				 
 				  
 			 },
@@ -199,8 +254,8 @@
 				canvas.height = this.viewH;
 				return canvas;
 			},
-			showYaoQiu(){
-				this.showImg = imgs.yaoqiu;
+			showDialog(type){
+				this.showImg = type;
 			},
 			initCanvas(){//
 
@@ -257,8 +312,14 @@
 
 
 			window.onresize = ()=>{
+				setTimeout(() => {
+					this.showSubmit = window.innerHeight >=this.viewH;
+					obserable.trigger({
+						type:'hideIndexSubmitBg',
+						data:this.showSubmit
+					})
 
-			
+				}, 10);
 			}
 		}
 	

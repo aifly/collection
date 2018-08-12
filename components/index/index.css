@@ -69,8 +69,8 @@
       left: 0;
       top: 0; }
       .zmiti-index-main-ui .zmiti-jiasu > img:nth-of-type(2).active {
-        -webkit-animation: rotate 1s infinite;
-        animation: rotate 1s infinite; }
+        -webkit-animation: rotate 1s linear infinite;
+        animation: rotate 1s linear infinite; }
     .zmiti-index-main-ui .zmiti-jiasu > img -webkit-keyframes rotate to {
       -webkit-transform: rotate(720deg);
       transform: rotate(720deg); }
@@ -127,7 +127,13 @@
     left: 50%;
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    z-index: 102; }
+    z-index: 102;
+    -webkit-animation: shake 1s linear infinite alternate;
+    animation: shake 1s linear infinite alternate; }
+@-webkit-keyframes shake {
+  to {
+    -webkit-transform: translate3d(-50%, -10px, 0);
+    transform: translate3d(-50%, -10px, 0); } }
   .zmiti-index-main-ui .zmiti-send {
     position: absolute;
     z-index: 20;

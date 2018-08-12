@@ -81,7 +81,7 @@
 		</div>
 		
 		
-		<div class="zmiti-submit-bg" :class="{'active':maxHeight<0}">
+		<div class="zmiti-submit-bg" v-if='showSubmit' :class="{'active':maxHeight<0}">
 			<img :src="imgs.submitBg" alt="">
 		</div>
 	</div>
@@ -99,6 +99,7 @@
 			return{
 				imgs,
 				pointW:0,
+				showSubmit:true,
 				transY:0,
 				pointH:0,
 				points:[],
@@ -208,7 +209,7 @@
 					var {rocketContext,rocketImg} = this.initDocket();
 					var h = this.viewH - 500/1.81 - 70;
 					var i = 0;
-					var x = 400;
+					var x = 390;
 					var iNow = 0;
 					var scale = 1.5;
 					var defaultScale = 1.5;
@@ -240,7 +241,7 @@
 
 								this.t = setInterval(()=>{
 									
-									if(this.index>=5){
+									if(this.index>= this.organizationArr.length - 1){
 										
 										this.showjiasu = false;
 										this.maxHeight = -300;
@@ -319,6 +320,10 @@
 				}, 600);
 				
 			}, 1000);
+
+			obserable.on('hideIndexSubmitBg',data=>{
+				this.showSubmit = data;
+			})
 
 
 
