@@ -13,7 +13,7 @@ body{
 	///background: #0e0c3e;
 	position: absolute !important;
 	width:$viewW !important;
-	left:50%;
+	left:50% !important;
 	margin-left: -375px;
 	canvas{
 		@include pos(a);
@@ -27,7 +27,7 @@ body{
 		@include transition(1s);
 	}
 	
-	z-index: 12100;
+	z-index: 210;
 	&.main-enter,
 	&.main-leave-to {
 		opacity:0;

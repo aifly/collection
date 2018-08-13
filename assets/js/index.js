@@ -62,6 +62,10 @@
 
 	var _componentsFormIndex2 = _interopRequireDefault(_componentsFormIndex);
 
+	var _componentsRequirementIndex = __webpack_require__(32);
+
+	var _componentsRequirementIndex2 = _interopRequireDefault(_componentsRequirementIndex);
+
 	var _componentsLibObserable = __webpack_require__(29);
 
 	var _componentsLibObserable2 = _interopRequireDefault(_componentsLibObserable);
@@ -119,7 +123,7 @@
 	 	<Music :obserable='obserable'></Music>
 	 	<Main :pv='pv' :nickname='nickname' :headimgurl='headimgurl'  v-if='show && !isShare'  :obserable='obserable'></Main>
 	 	*/
-		template: '<div>\n\t\t<Index :pv=\'pv\' :nickname=\'nickname\' :headimgurl=\'headimgurl\'   v-if=\'show && !isShare\'  :obserable=\'obserable\'></Index>\n\t\t<Form :pv=\'pv\' :nickname=\'nickname\' :headimgurl=\'headimgurl\'   v-if=\'show && !isShare\'  :obserable=\'obserable\'></Form>\n\t\t<div  v-if=\'!loaded\' :style=\'{background:"#158ae4"}\' class=\'zmiti-loading lt-full\'>\n\t\t\t<div class=\'zmiti-loading-ui\'>\n\t\t\t\t <a href="#">\n\t\t\t  \t\t<section class=\'zmiti-head\' :style="{background:\'url(./assets/images/logo.png) no-repeat center / cover\'}"></section>\n\t\t\t        <div class="line1"></div>\n\t\t\t        <div class="line2"></div>\n\t\t\t        <div class="line3"></div>\n\t\t\t\t\t<div class=\'zmiti-progress\'>{{width}}%</div>\n\t\t\t    </a>\n\t\t\t</div>\n\t\t</div>\n\n\t\n\t</div>',
+		template: '<div>\n\t\t<Index :pv=\'pv\' :nickname=\'nickname\' :headimgurl=\'headimgurl\'   v-if=\'show && !isShare\'  :obserable=\'obserable\'></Index>\n\t\t<Form :pv=\'pv\' :nickname=\'nickname\' :headimgurl=\'headimgurl\'   v-if=\'show && !isShare\'  :obserable=\'obserable\'></Form>\n\t\t<Requirement :pv=\'pv\' :nickname=\'nickname\' :headimgurl=\'headimgurl\'   v-if=\'show && !isShare\'  :obserable=\'obserable\'></Requirement>\n\t\t<div  v-if=\'!loaded\' :style=\'{background:"#158ae4"}\' class=\'zmiti-loading lt-full\'>\n\t\t\t<div class=\'zmiti-loading-ui\'>\n\t\t\t\t <a href="#">\n\t\t\t  \t\t<section class=\'zmiti-head\' :style="{background:\'url(./assets/images/logo.png) no-repeat center / cover\'}"></section>\n\t\t\t        <div class="line1"></div>\n\t\t\t        <div class="line2"></div>\n\t\t\t        <div class="line3"></div>\n\t\t\t\t\t<div class=\'zmiti-progress\'>{{width}}%</div>\n\t\t\t    </a>\n\t\t\t</div>\n\t\t</div>\n\n\t\n\t</div>',
 		methods: {
 
 			loading: function loading(arr, fn, fnEnd) {
@@ -169,7 +173,8 @@
 		},
 		components: {
 			Index: _componentsIndexIndex2['default'],
-			Form: _componentsFormIndex2['default']
+			Form: _componentsFormIndex2['default'],
+			Requirement: _componentsRequirementIndex2['default']
 
 		},
 		mounted: function mounted() {
@@ -279,7 +284,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
-	 * Vue.js v2.5.17
+	 * Vue.js v2.5.16
 	 * (c) 2014-2018 Evan You
 	 * Released under the MIT License.
 	 */
@@ -5355,7 +5360,7 @@
 	  value: FunctionalRenderContext
 	});
 
-	Vue.version = '2.5.17';
+	Vue.version = '2.5.16';
 
 	/*  */
 
@@ -11232,18 +11237,15 @@
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
-	            (typeof self !== "undefined" && self) ||
-	            window;
-	var apply = Function.prototype.apply;
+	/* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
 
 	// DOM APIs, for completeness
 
 	exports.setTimeout = function() {
-	  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
 	};
 	exports.setInterval = function() {
-	  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
 	};
 	exports.clearTimeout =
 	exports.clearInterval = function(timeout) {
@@ -11258,7 +11260,7 @@
 	}
 	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
 	Timeout.prototype.close = function() {
-	  this._clearFn.call(scope, this._id);
+	  this._clearFn.call(window, this._id);
 	};
 
 	// Does not start the time, just sets up the members needed.
@@ -11286,7 +11288,7 @@
 
 	// setimmediate attaches itself to the global object
 	__webpack_require__(3);
-	// On some exotic environments, it's not clear which object `setimmediate` was
+	// On some exotic environments, it's not clear which object `setimmeidate` was
 	// able to install onto.  Search each possibility in the same order as the
 	// `setimmediate` library.
 	exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
@@ -12043,7 +12045,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\collection\\components\\index\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\index\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -12329,7 +12331,7 @@
 									} else {
 										_this2.index++;
 									}
-								}, 4000);
+								}, 8000);
 							}
 							points.map(function (p, i) {
 								p.y += 4;
@@ -12390,6 +12392,7 @@
 
 			obserable.on('hideIndexSubmitBg', function (data) {
 				_this4.showSubmit = data;
+				_this4.starting = !data;
 			});
 		}
 	};
@@ -22724,7 +22727,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\collection\\components\\form\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\form\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22771,7 +22774,7 @@
 	// 					</div>
 	// 					<div class="zmiti-tips">
 	// 						<div>
-	// 							提交名称要求<img :src="imgs.help" @touchstart='imgStart' v-tap='[showDialog,imgs.yaoqiu]'/>
+	// 							提交名称要求<img :src="imgs.help" @touchstart='imgStart' v-tap='[showYaoqiu]'/>
 	// 						</div>
 	// 						<div class="" v-tap='[toggleMeanInput]'>
 	// 							填写名字的含义
@@ -22803,7 +22806,7 @@
 	// 				<div class="zmiti-car">
 	// 					<img :src="imgs.car" alt="">
 	//
-	// 					<div class="zmiti-car-tips" v-tap='[showDialog,imgs.jiangxiang]'>
+	// 					<div class="zmiti-car-tips" v-tap='[showJX]'>
 	// 						<div>
 	// 							<ul>
 	// 								<li>快来给我起名吧</li>
@@ -22919,7 +22922,31 @@
 					return true;
 				}
 			},
-
+			showYaoqiu: function showYaoqiu() {
+				this.obserable.trigger({
+					type: 'hideForm'
+				});
+				this.obserable.trigger({
+					type: 'hideIndexSubmitBg',
+					data: false
+				});
+				this.obserable.trigger({
+					type: 'toggleRequirement',
+					data: true
+				});
+			},
+			showJX: function showJX() {
+				this.obserable.trigger({
+					type: 'hideForm'
+				});
+				this.obserable.trigger({
+					type: 'hideIndexSubmitBg',
+					data: false
+				});
+				this.obserable.trigger({
+					type: 'showByJX'
+				});
+			},
 			regEmail: function regEmail() {
 				var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
 				return reg.test(this.formUser.email);
@@ -22971,6 +22998,7 @@
 					if (name) {
 						_jquery2['default'].ajax({
 							url: 'http://120.26.42.181:8016/api.ashx?act=postlunarrover',
+							url: 'http://open.api.zhongguowangshi.com/api.ashx?act=postlunarrover',
 							dataType: 'JSON',
 							//contentType: "application/json",
 							data: JSON.stringify({
@@ -22983,6 +23011,7 @@
 							}),
 							type: 'post',
 							success: function success(data) {
+								//console.log(data);
 								if (typeof data === 'string') {
 									data = JSON.parse(data);
 								}
@@ -23115,7 +23144,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0; }\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis; }\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem; }\r\n  .zmiti-play.rotate {\r\n    -webkit-animation: rotate 5s linear infinite;\r\n    animation: rotate 5s linear infinite; }\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg); } }\r\nbody {\r\n  overflow-x: hidden; }\r\n\r\n.zmiti-form-main-ui {\r\n  overflow: hidden;\r\n  position: absolute !important;\r\n  width: 750px !important;\r\n  left: 50%;\r\n  margin-left: -375px;\r\n  z-index: 12100; }\r\n  .zmiti-form-main-ui canvas {\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    z-index: -1; }\r\n  .zmiti-form-main-ui.main-enter-active, .zmiti-form-main-ui.main-leave-active {\r\n    -webkit-transition: 1s;\r\n    transition: 1s; }\r\n  .zmiti-form-main-ui.main-enter, .zmiti-form-main-ui.main-leave-to {\r\n    opacity: 0; }\r\n  .zmiti-form-main-ui.show {\r\n    opacity: 1;\r\n    z-index: 202; }\r\n  .zmiti-form-main-ui .zmiti-mask {\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 400;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n  .zmiti-form-main-ui .zmiti-moon1 {\r\n    position: absolute;\r\n    width: 150px;\r\n    top: -40px;\r\n    left: 30px; }\r\n  .zmiti-form-main-ui .zmiti-plane {\r\n    position: absolute;\r\n    width: 250px;\r\n    right: -50px;\r\n    top: -50px; }\r\n  .zmiti-form-main-ui .zmiti-subtitle {\r\n    width: 550px;\r\n    margin: 0 auto 0; }\r\n  .zmiti-form-main-ui .zmiti-car {\r\n    position: absolute;\r\n    width: 100%;\r\n    text-align: center;\r\n    top: 50px; }\r\n    .zmiti-form-main-ui .zmiti-car img {\r\n      width: 200px; }\r\n    .zmiti-form-main-ui .zmiti-car .zmiti-car-tips {\r\n      padding: 0 30px;\r\n      color: #fde966;\r\n      height: 60px;\r\n      line-height: 60px;\r\n      border: 1px solid #50fefb;\r\n      position: absolute;\r\n      width: 300px;\r\n      top: -70%;\r\n      left: 45%;\r\n      -webkit-transform: translate3d(-50%, 0, 0);\r\n      transform: translate3d(-50%, 0, 0);\r\n      background: #50fefb;\r\n      background: #19365d;\r\n      border-radius: 10px; }\r\n      .zmiti-form-main-ui .zmiti-car .zmiti-car-tips > div {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        z-index: 100;\r\n        left: 0;\r\n        top: 0;\r\n        overflow: hidden; }\r\n      .zmiti-form-main-ui .zmiti-car .zmiti-car-tips ul {\r\n        -webkit-animation: move 8s infinite;\r\n        animation: move 8s infinite; }\r\n@-webkit-keyframes move {\r\n  25% {\r\n    -webkit-transform: translate3d(0, -60px, 0);\r\n    transform: translate3d(0, -60px, 0); }\r\n  50% {\r\n    -webkit-transform: translate3d(0, -120px, 0);\r\n    transform: translate3d(0, -120px, 0); }\r\n  75% {\r\n    -webkit-transform: translate3d(0, -180px, 0);\r\n    transform: translate3d(0, -180px, 0); }\r\n  100% {\r\n    -webkit-transform: translate3d(0, -240px, 0);\r\n    transform: translate3d(0, -240px, 0); } }\r\n      .zmiti-form-main-ui .zmiti-car .zmiti-car-tips:before {\r\n        content: \"\";\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0;\r\n        box-shadow: 0 0 20px rgba(80, 254, 251, 0.2) inset, 0 0 20px rgba(80, 254, 251, 0.2); }\r\n      .zmiti-form-main-ui .zmiti-car .zmiti-car-tips:after {\r\n        content: \"\";\r\n        position: absolute;\r\n        width: 30px;\r\n        height: 30px;\r\n        left: 50%;\r\n        border: 1px solid #50fefb;\r\n        border-left: none;\r\n        border-top: none;\r\n        margin-left: -15px;\r\n        background: #50fefb;\r\n        background: #19365d;\r\n        bottom: -16px;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg); }\r\n  .zmiti-form-main-ui .zmiti-name-C {\r\n    width: 750px;\r\n    position: relative;\r\n    margin-top: 40px; }\r\n    .zmiti-form-main-ui .zmiti-name-C .zmiti-add,\r\n    .zmiti-form-main-ui .zmiti-name-C .zmiti-reduce {\r\n      position: absolute;\r\n      right: 5px;\r\n      width: 50px;\r\n      top: 15px; }\r\n    .zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input {\r\n      width: 620px;\r\n      height: 80px;\r\n      margin: 0 auto;\r\n      border: 1px solid #fdeb59;\r\n      text-align: center;\r\n      overflow: hidden; }\r\n      .zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span {\r\n        position: absolute;\r\n        width: 20px;\r\n        height: 20px;\r\n        border: 3px solid #fdeb59; }\r\n        .zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(1) {\r\n          left: 63px;\r\n          top: 0;\r\n          border-right: none;\r\n          border-bottom: none; }\r\n        .zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(2) {\r\n          left: 664px;\r\n          top: 0;\r\n          border-left: none;\r\n          border-bottom: none; }\r\n        .zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(3) {\r\n          left: 63px;\r\n          top: 60px;\r\n          border-top: none;\r\n          border-right: none; }\r\n        .zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(4) {\r\n          left: 664px;\r\n          top: 60px;\r\n          border-left: none;\r\n          border-top: none; }\r\n      .zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input input {\r\n        width: 90%;\r\n        height: 100%;\r\n        font-size: 30px;\r\n        outline: none;\r\n        background: transparent;\r\n        border: none;\r\n        color: #fdeb59; }\r\n  .zmiti-form-main-ui .zmiti-tips {\r\n    width: 640px;\r\n    margin: 20px auto 0;\r\n    color: #50fefb;\r\n    position: relative;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-pack: justify; }\r\n    .zmiti-form-main-ui .zmiti-tips img {\r\n      width: 40px;\r\n      margin-left: 10px; }\r\n    .zmiti-form-main-ui .zmiti-tips > div:nth-of-type(2) {\r\n      text-indent: -2em;\r\n      width: 200px; }\r\n    .zmiti-form-main-ui .zmiti-tips span {\r\n      display: inline-block;\r\n      width: 30px;\r\n      height: 30px;\r\n      -webkit-transition: 0.2s;\r\n      transition: 0.2s;\r\n      -webkit-transform: rotate(180deg);\r\n      transform: rotate(180deg);\r\n      vertical-align: middle;\r\n      position: absolute;\r\n      right: 0;\r\n      top: 10px; }\r\n      .zmiti-form-main-ui .zmiti-tips span.rotate {\r\n        -webkit-transform: rotate(0);\r\n        transform: rotate(0); }\r\n      .zmiti-form-main-ui .zmiti-tips span:before, .zmiti-form-main-ui .zmiti-tips span:after {\r\n        content: '';\r\n        width: 20px;\r\n        height: 20px;\r\n        left: 3px;\r\n        top: 0;\r\n        border: 2px solid #42fffb;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg);\r\n        position: absolute;\r\n        border-left: none;\r\n        border-top: none; }\r\n      .zmiti-form-main-ui .zmiti-tips span:after {\r\n        margin-top: -10px; }\r\n  .zmiti-form-main-ui .zmiti-mean-input {\r\n    width: 640px;\r\n    margin: 30px auto 0;\r\n    overflow: hidden;\r\n    -webkit-transition: 0.2s;\r\n    transition: 0.2s; }\r\n    .zmiti-form-main-ui .zmiti-mean-input.hide {\r\n      height: 0; }\r\n    .zmiti-form-main-ui .zmiti-mean-input textarea {\r\n      width: 99%;\r\n      font-family: \"Helvetica Neue\", 'Helvetica', \"Microsoft YaHei\", arial, sans-serif;\r\n      height: 200px;\r\n      background: transparent;\r\n      border: none;\r\n      outline: none;\r\n      border: 1px solid #fffb88;\r\n      color: #fffb88;\r\n      font-size: 30px;\r\n      padding: 20px;\r\n      box-sizing: border-box; }\r\n  .zmiti-form-main-ui .zmiti-form-main {\r\n    position: absolute;\r\n    height: 660px;\r\n    top: 100px;\r\n    width: 100%;\r\n    z-index: 100;\r\n    overflow: hidden;\r\n    box-sizing: border-box;\r\n    padding-bottom: 50px; }\r\n  .zmiti-form-main-ui .zmiti-username,\r\n  .zmiti-form-main-ui .zmiti-mobile {\r\n    width: 640px;\r\n    color: #50fefb;\r\n    margin: 30px auto 0;\r\n    border-bottom: 1px solid #286e89; }\r\n    .zmiti-form-main-ui .zmiti-username input,\r\n    .zmiti-form-main-ui .zmiti-mobile input {\r\n      background: transparent;\r\n      height: 50px;\r\n      width: 500px;\r\n      border: none;\r\n      outline: none;\r\n      color: #50fefb;\r\n      font-size: 30px; }\r\n  .zmiti-form-main-ui .zmiti-submit-C {\r\n    position: absolute;\r\n    bottom: 0; }\r\n    .zmiti-form-main-ui .zmiti-submit-C .zmiti-submit-btn {\r\n      width: 450px;\r\n      position: absolute;\r\n      z-index: 10;\r\n      bottom: 40px;\r\n      left: 150px; }\r\n\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\nbody {\n  overflow-x: hidden;\n}\n\n.zmiti-form-main-ui {\n  overflow: hidden;\n  position: absolute !important;\n  width: 750px !important;\n  left: 50% !important;\n  margin-left: -375px;\n  z-index: 210;\n}\n\n.zmiti-form-main-ui canvas {\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: -1;\n}\n\n.zmiti-form-main-ui.main-enter-active, .zmiti-form-main-ui.main-leave-active {\n  -webkit-transition: 1s;\n  transition: 1s;\n}\n\n.zmiti-form-main-ui.main-enter, .zmiti-form-main-ui.main-leave-to {\n  opacity: 0;\n}\n\n.zmiti-form-main-ui.show {\n  opacity: 1;\n  z-index: 202;\n}\n\n.zmiti-form-main-ui .zmiti-mask {\n  background: rgba(0, 0, 0, 0.5);\n  z-index: 400;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n}\n\n.zmiti-form-main-ui .zmiti-moon1 {\n  position: absolute;\n  width: 150px;\n  top: -40px;\n  left: 30px;\n}\n\n.zmiti-form-main-ui .zmiti-plane {\n  position: absolute;\n  width: 250px;\n  right: -50px;\n  top: -50px;\n}\n\n.zmiti-form-main-ui .zmiti-subtitle {\n  width: 550px;\n  margin: 0 auto 0;\n}\n\n.zmiti-form-main-ui .zmiti-car {\n  position: absolute;\n  width: 100%;\n  text-align: center;\n  top: 50px;\n}\n\n.zmiti-form-main-ui .zmiti-car img {\n  width: 200px;\n}\n\n.zmiti-form-main-ui .zmiti-car .zmiti-car-tips {\n  padding: 0 30px;\n  color: #fde966;\n  height: 60px;\n  line-height: 60px;\n  border: 1px solid #50fefb;\n  position: absolute;\n  width: 300px;\n  top: -70%;\n  left: 45%;\n  -webkit-transform: translate3d(-50%, 0, 0);\n  transform: translate3d(-50%, 0, 0);\n  background: #50fefb;\n  background: #19365d;\n  border-radius: 10px;\n}\n\n.zmiti-form-main-ui .zmiti-car .zmiti-car-tips > div {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 100;\n  left: 0;\n  top: 0;\n  overflow: hidden;\n}\n\n.zmiti-form-main-ui .zmiti-car .zmiti-car-tips ul {\n  -webkit-animation: move 8s infinite;\n  animation: move 8s infinite;\n}\n\n@-webkit-keyframes move {\n  25% {\n    -webkit-transform: translate3d(0, -60px, 0);\n    transform: translate3d(0, -60px, 0);\n  }\n  50% {\n    -webkit-transform: translate3d(0, -120px, 0);\n    transform: translate3d(0, -120px, 0);\n  }\n  75% {\n    -webkit-transform: translate3d(0, -180px, 0);\n    transform: translate3d(0, -180px, 0);\n  }\n  100% {\n    -webkit-transform: translate3d(0, -240px, 0);\n    transform: translate3d(0, -240px, 0);\n  }\n}\n\n.zmiti-form-main-ui .zmiti-car .zmiti-car-tips:before {\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  box-shadow: 0 0 20px rgba(80, 254, 251, 0.2) inset, 0 0 20px rgba(80, 254, 251, 0.2);\n}\n\n.zmiti-form-main-ui .zmiti-car .zmiti-car-tips:after {\n  content: \"\";\n  position: absolute;\n  width: 30px;\n  height: 30px;\n  left: 50%;\n  border: 1px solid #50fefb;\n  border-left: none;\n  border-top: none;\n  margin-left: -15px;\n  background: #50fefb;\n  background: #19365d;\n  bottom: -16px;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n\n.zmiti-form-main-ui .zmiti-name-C {\n  width: 750px;\n  position: relative;\n  margin-top: 40px;\n}\n\n.zmiti-form-main-ui .zmiti-name-C .zmiti-add,\n.zmiti-form-main-ui .zmiti-name-C .zmiti-reduce {\n  position: absolute;\n  right: 5px;\n  width: 50px;\n  top: 15px;\n}\n\n.zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input {\n  width: 620px;\n  height: 80px;\n  margin: 0 auto;\n  border: 1px solid #fdeb59;\n  text-align: center;\n  overflow: hidden;\n}\n\n.zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span {\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  border: 3px solid #fdeb59;\n}\n\n.zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(1) {\n  left: 63px;\n  top: 0;\n  border-right: none;\n  border-bottom: none;\n}\n\n.zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(2) {\n  left: 664px;\n  top: 0;\n  border-left: none;\n  border-bottom: none;\n}\n\n.zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(3) {\n  left: 63px;\n  top: 60px;\n  border-top: none;\n  border-right: none;\n}\n\n.zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input span:nth-of-type(4) {\n  left: 664px;\n  top: 60px;\n  border-left: none;\n  border-top: none;\n}\n\n.zmiti-form-main-ui .zmiti-name-C > .zmiti-name-input input {\n  width: 90%;\n  height: 100%;\n  font-size: 30px;\n  outline: none;\n  background: transparent;\n  border: none;\n  color: #fdeb59;\n}\n\n.zmiti-form-main-ui .zmiti-tips {\n  width: 640px;\n  margin: 20px auto 0;\n  color: #50fefb;\n  position: relative;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  -webkit-box-pack: justify;\n}\n\n.zmiti-form-main-ui .zmiti-tips img {\n  width: 40px;\n  margin-left: 10px;\n}\n\n.zmiti-form-main-ui .zmiti-tips > div:nth-of-type(2) {\n  text-indent: -2em;\n  width: 200px;\n}\n\n.zmiti-form-main-ui .zmiti-tips span {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n  -webkit-transform: rotate(180deg);\n  transform: rotate(180deg);\n  vertical-align: middle;\n  position: absolute;\n  right: 0;\n  top: 10px;\n}\n\n.zmiti-form-main-ui .zmiti-tips span.rotate {\n  -webkit-transform: rotate(0);\n  transform: rotate(0);\n}\n\n.zmiti-form-main-ui .zmiti-tips span:before, .zmiti-form-main-ui .zmiti-tips span:after {\n  content: '';\n  width: 20px;\n  height: 20px;\n  left: 3px;\n  top: 0;\n  border: 2px solid #42fffb;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n  position: absolute;\n  border-left: none;\n  border-top: none;\n}\n\n.zmiti-form-main-ui .zmiti-tips span:after {\n  margin-top: -10px;\n}\n\n.zmiti-form-main-ui .zmiti-mean-input {\n  width: 640px;\n  margin: 30px auto 0;\n  overflow: hidden;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n}\n\n.zmiti-form-main-ui .zmiti-mean-input.hide {\n  height: 0;\n}\n\n.zmiti-form-main-ui .zmiti-mean-input textarea {\n  width: 99%;\n  font-family: \"Helvetica Neue\",\r 'Helvetica',\r \"Microsoft YaHei\",\r arial,\r sans-serif;\n  height: 200px;\n  background: transparent;\n  border: none;\n  outline: none;\n  border: 1px solid #fffb88;\n  color: #fffb88;\n  font-size: 30px;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.zmiti-form-main-ui .zmiti-form-main {\n  position: absolute;\n  height: 660px;\n  top: 100px;\n  width: 100%;\n  z-index: 100;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding-bottom: 50px;\n}\n\n.zmiti-form-main-ui .zmiti-username,\n.zmiti-form-main-ui .zmiti-mobile {\n  width: 640px;\n  color: #50fefb;\n  margin: 30px auto 0;\n  border-bottom: 1px solid #286e89;\n}\n\n.zmiti-form-main-ui .zmiti-username input,\n.zmiti-form-main-ui .zmiti-mobile input {\n  background: transparent;\n  height: 50px;\n  width: 500px;\n  border: none;\n  outline: none;\n  color: #50fefb;\n  font-size: 30px;\n}\n\n.zmiti-form-main-ui .zmiti-submit-C {\n  position: absolute;\n  bottom: 0;\n}\n\n.zmiti-form-main-ui .zmiti-submit-C .zmiti-submit-btn {\n  width: 450px;\n  position: absolute;\n  z-index: 10;\n  bottom: 40px;\n  left: 150px;\n}\n", ""]);
 
 	// exports
 
@@ -25232,7 +25261,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\collection\\components\\toast\\toast.vue"
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\toast\\toast.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -25256,8 +25285,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ea170124&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ea170124&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-21b003e4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-21b003e4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -25396,7 +25425,7 @@
 /* 28 */
 /***/ (function(module, exports) {
 
-	module.exports = "\r\n\t<transition name='main'>\r\n\t\t<div class=\"zmiti-form-main-ui lt-full\" v-if='show'>\r\n\t\t\t<div class=\"zmiti-moon1\">\r\n\t\t\t\t<img :src=\"imgs.moon1\" alt=\"\">\r\n\t\t\t</div>\r\n\r\n\t\t\t<canvas ref='canvas'></canvas>\r\n\r\n\t\t\t<div class=\"zmiti-plane\">\r\n\t\t\t\t<img :src=\"imgs.plane\" alt=\"\">\r\n\t\t\t</div>\r\n\r\n\t\t\t<section  ref='page' class=\"zmiti-form-main\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"zmiti-subtitle\">\r\n\t\t\t\t\t\t<img :src=\"imgs.subtitle\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div :key=\"i\" class=\"zmiti-name-C\" v-for='(name,i) in names'>\r\n\t\t\t\t\t\t<div class=\"zmiti-name-input\">\r\n\t\t\t\t\t\t\t<input placeholder=\"征集的名字\" type=\"text\" v-model='names[i]'/>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"zmiti-add\" v-if='i===0' v-tap='[addName]'>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.add\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"zmiti-reduce\" v-if='i>0' v-tap='[reduceName,i]'>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.reduce\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"zmiti-tips\">\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t提交名称要求<img :src=\"imgs.help\" @touchstart='imgStart' v-tap='[showDialog,imgs.yaoqiu]'/>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"\" v-tap='[toggleMeanInput]'>\r\n\t\t\t\t\t\t\t填写名字的含义 \r\n\t\t\t\t\t\t\t<span :class=\"{'rotate':showMeanInput}\" ></span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"zmiti-mean-input\" :style=\"{margin:showMeanInput?'30px auto 0':'0 auto'}\" :class=\"{'hide':!showMeanInput}\">\r\n\t\t\t\t\t\t<textarea placeholder=\"征集名字的含义\" v-model=\"meaning\">\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</textarea>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class=\"zmiti-username\">\r\n\t\t\t\t\t\t<span>姓名：</span><input type=\"text\" v-model=\"username\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"zmiti-mobile\">\r\n\t\t\t\t\t\t<span>电话：</span><input type=\"text\" v-model=\"mobile\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</section>\r\n\r\n\t\t\t<div class=\"zmiti-submit-C\" v-if='showSubmit'>\r\n\t\t\t\t<img :src=\"imgs.submitBg\" alt=\"\">\r\n\t\t\t\t<div class=\"zmiti-submit-btn\" v-tap='[submit]'>\r\n\t\t\t\t\t<img :src=\"imgs.submitBtn\" alt=\"\">\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class=\"zmiti-car\">\r\n\t\t\t\t\t<img :src=\"imgs.car\" alt=\"\">\r\n\r\n\t\t\t\t\t<div class=\"zmiti-car-tips\" v-tap='[showDialog,imgs.jiangxiang]'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li>快来给我起名吧</li>\r\n\t\t\t\t\t\t\t\t<li>每天抽取6名幸运网友</li>\r\n\t\t\t\t\t\t\t\t<li>奖品探月征名活动车模</li>\r\n\t\t\t\t\t\t\t\t<li>点击查看</li>\r\n\t\t\t\t\t\t\t\t<li>快来给我起名吧</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<Toast :errorMsg='errorMsg'></Toast>\r\n\t\t\t\r\n\t\t\t<div v-if='showImg' class=\"zmiti-mask lt-full\">\r\n\t\t\t\t<div v-tap='[hideMask]'>\r\n\t\t\t\t\t<img :src=\"showImg\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</transition>\r\n";
+	module.exports = "\r\n\t<transition name='main'>\r\n\t\t<div class=\"zmiti-form-main-ui lt-full\" v-if='show'>\r\n\t\t\t<div class=\"zmiti-moon1\">\r\n\t\t\t\t<img :src=\"imgs.moon1\" alt=\"\">\r\n\t\t\t</div>\r\n\r\n\t\t\t<canvas ref='canvas'></canvas>\r\n\r\n\t\t\t<div class=\"zmiti-plane\">\r\n\t\t\t\t<img :src=\"imgs.plane\" alt=\"\">\r\n\t\t\t</div>\r\n\r\n\t\t\t<section  ref='page' class=\"zmiti-form-main\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"zmiti-subtitle\">\r\n\t\t\t\t\t\t<img :src=\"imgs.subtitle\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div :key=\"i\" class=\"zmiti-name-C\" v-for='(name,i) in names'>\r\n\t\t\t\t\t\t<div class=\"zmiti-name-input\">\r\n\t\t\t\t\t\t\t<input placeholder=\"征集的名字\" type=\"text\" v-model='names[i]'/>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"zmiti-add\" v-if='i===0' v-tap='[addName]'>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.add\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"zmiti-reduce\" v-if='i>0' v-tap='[reduceName,i]'>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.reduce\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"zmiti-tips\">\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t提交名称要求<img :src=\"imgs.help\" @touchstart='imgStart' v-tap='[showYaoqiu]'/>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"\" v-tap='[toggleMeanInput]'>\r\n\t\t\t\t\t\t\t填写名字的含义 \r\n\t\t\t\t\t\t\t<span :class=\"{'rotate':showMeanInput}\" ></span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"zmiti-mean-input\" :style=\"{margin:showMeanInput?'30px auto 0':'0 auto'}\" :class=\"{'hide':!showMeanInput}\">\r\n\t\t\t\t\t\t<textarea placeholder=\"征集名字的含义\" v-model=\"meaning\">\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</textarea>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class=\"zmiti-username\">\r\n\t\t\t\t\t\t<span>姓名：</span><input type=\"text\" v-model=\"username\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"zmiti-mobile\">\r\n\t\t\t\t\t\t<span>电话：</span><input type=\"text\" v-model=\"mobile\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</section>\r\n\r\n\t\t\t<div class=\"zmiti-submit-C\" v-if='showSubmit'>\r\n\t\t\t\t<img :src=\"imgs.submitBg\" alt=\"\">\r\n\t\t\t\t<div class=\"zmiti-submit-btn\" v-tap='[submit]'>\r\n\t\t\t\t\t<img :src=\"imgs.submitBtn\" alt=\"\">\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class=\"zmiti-car\">\r\n\t\t\t\t\t<img :src=\"imgs.car\" alt=\"\">\r\n\r\n\t\t\t\t\t<div class=\"zmiti-car-tips\" v-tap='[showJX]'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li>快来给我起名吧</li>\r\n\t\t\t\t\t\t\t\t<li>每天抽取6名幸运网友</li>\r\n\t\t\t\t\t\t\t\t<li>奖品探月征名活动车模</li>\r\n\t\t\t\t\t\t\t\t<li>点击查看</li>\r\n\t\t\t\t\t\t\t\t<li>快来给我起名吧</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<Toast :errorMsg='errorMsg'></Toast>\r\n\t\t\t\r\n\t\t\t<div v-if='showImg' class=\"zmiti-mask lt-full\">\r\n\t\t\t\t<div v-tap='[hideMask]'>\r\n\t\t\t\t\t<img :src=\"showImg\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</transition>\r\n";
 
 /***/ }),
 /* 29 */
@@ -25672,6 +25701,179 @@
 	   }
 	}))
 
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(33)
+	__vue_template__ = __webpack_require__(36)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\requirement\\index.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// <template>
+	// 	<div ref='page'  class="lt-full zmiti-requirement-main-ui "   :class="{'show':show}" >
+	//
+	// 		<div  class="zmiti-organization">
+	//
+	// 			<div class="zmiti-back" v-tap='[hidePage]'></div>
+	// 			<span></span>
+	// 			<span></span>
+	// 			<span></span>
+	// 			<span></span>
+	// 			<div class="zmiti-organization-title">
+	// 				<img :src="imgs.organization" alt="">
+	// 				<span>{{showJX?'奖项设置':'提交名称要求'}}</span>
+	// 			</div>
+	// 			<h1 style="height:4vh;"></h1>
+	//
+	// 			<div class="zmiti-units" v-if='!showJX' v-for='(yq,i) in yaoqiuList' :key='i'>
+	// 				{{yq}}
+	// 			</div>
+	// 			<div  v-if='showJX'  class="zmiti-jx">
+	// 				<img :src="imgs.jiangxiang" alt="">
+	// 			</div>
+	// 		</div>
+	//
+	//
+	//
+	// 	</div>
+	// </template>
+	//
+	// <script>
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	__webpack_require__(34);
+
+	var _libAssetsJs = __webpack_require__(13);
+
+	var _libUtil = __webpack_require__(14);
+
+	exports['default'] = {
+		props: ['obserable', 'nickname', 'pv'],
+		name: 'zmitiindex',
+		data: function data() {
+			return {
+				imgs: _libAssetsJs.imgs,
+				showStartBtn: false,
+				showJX: false,
+				index: -1,
+				yaoqiuList: window.yaoqiuList,
+				starting: false,
+				show: false,
+				viewW: Math.min(window.innerWidth, 750),
+				viewH: window.innerHeight
+			};
+		},
+		components: {},
+
+		methods: {
+
+			imgStart: function imgStart(e) {
+				e.preventDefault();
+			},
+			hidePage: function hidePage() {
+				this.obserable.trigger({
+					type: 'toggleRequirement',
+					data: false
+				});
+				this.obserable.trigger({
+					type: 'showForm'
+				});
+				this.obserable.trigger({
+					type: 'hideIndexSubmitBg',
+					data: true
+				});
+			}
+		},
+		mounted: function mounted() {
+			var _this = this;
+
+			var obserable = this.obserable;
+
+			obserable.on('toggleRequirement', function (data) {
+				_this.show = data;
+				setTimeout(function () {
+					_this.showJX = false;
+				}, 1000);
+			});
+
+			obserable.on('showByJX', function () {
+				_this.show = true;
+				_this.showJX = true;
+			});
+		}
+	};
+
+	// </script>
+	module.exports = exports['default'];
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(35);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!./index.css", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!./index.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.zmiti-requirement-main-ui {\n  overflow: hidden;\n  width: 750px !important;\n  left: 50% !important;\n  margin-left: -375px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  opacity: 0;\n  z-index: -1;\n  -webkit-transition: 0.8s;\n  transition: 0.8s;\n}\n\n.zmiti-requirement-main-ui.show {\n  opacity: 1;\n  z-index: 500;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization {\n  position: relative;\n  border: 1px solid #50fefb;\n  width: 680px;\n  margin-top: 40px;\n  z-index: 100;\n  background: rgba(3, 3, 46, 0.8);\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-jx {\n  width: 80%;\n  margin: 20px auto;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-back {\n  width: 30px;\n  height: 30px;\n  position: absolute;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n  top: -140px;\n  padding: 30px;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-back:before {\n  content: '';\n  position: absolute;\n  border: 3px solid #40fffb;\n  border-right: none;\n  border-top: none;\n  width: 30px;\n  height: 30px;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span {\n  width: 30px;\n  height: 30px;\n  border: 3px solid #40fffb;\n  position: absolute;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(1) {\n  left: -1px;\n  top: -1px;\n  border-right: none;\n  border-bottom: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(2) {\n  right: -1px;\n  top: -1px;\n  border-left: none;\n  border-bottom: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(3) {\n  bottom: -1px;\n  left: -1px;\n  border-right: none;\n  border-top: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(4) {\n  right: -1px;\n  bottom: -1px;\n  border-left: none;\n  border-top: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization:before {\n  content: '';\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  box-shadow: 0 0 10px rgba(80, 254, 251, 0.5), 0 0 10px rgba(80, 254, 251, 0.5) inset;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-organization-title {\n  position: absolute;\n  width: 70%;\n  left: 15%;\n  top: -42px;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-organization-title span {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  left: 0;\n  top: 0;\n  color: #fde966;\n  line-height: 80px;\n  font-size: 34px;\n  font-weight: bold;\n}\n\n.zmiti-requirement-main-ui .zmiti-units {\n  width: 92%;\n  margin: 30px auto;\n  font-size: 28px;\n  line-height: 54px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  -webkit-box-pack: justify;\n  -webkit-box-align: start;\n  color: #40fffb;\n}\n\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-title {\n  color: #fde966;\n  width: 140px;\n  margin: 15px 0;\n}\n\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-names {\n  color: #40fffb;\n  -webkit-box-flex: 1;\n}\n\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-names div {\n  margin: 15px 0;\n}\n\n.zmiti-requirement-main-ui .zmiti-remark {\n  color: #40fffb;\n  width: 90%;\n  margin: 20px auto;\n  line-height: 50px;\n  text-indent: 2em;\n}\n", ""]);
+
+	// exports
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+	module.exports = "\r\n\t<div ref='page'  class=\"lt-full zmiti-requirement-main-ui \"   :class=\"{'show':show}\" >\r\n\r\n\t\t<div  class=\"zmiti-organization\">\r\n\r\n\t\t\t<div class=\"zmiti-back\" v-tap='[hidePage]'></div>\r\n\t\t\t<span></span>\r\n\t\t\t<span></span>\r\n\t\t\t<span></span>\r\n\t\t\t<span></span>\r\n\t\t\t<div class=\"zmiti-organization-title\">\r\n\t\t\t\t<img :src=\"imgs.organization\" alt=\"\">\r\n\t\t\t\t<span>{{showJX?'奖项设置':'提交名称要求'}}</span>\r\n\t\t\t</div>\r\n\t\t\t<h1 style=\"height:4vh;\"></h1>\r\n\r\n\t\t\t<div class=\"zmiti-units\" v-if='!showJX' v-for='(yq,i) in yaoqiuList' :key='i'>\r\n\t\t\t\t{{yq}}\r\n\t\t\t</div>\r\n\t\t\t<div  v-if='showJX'  class=\"zmiti-jx\">\r\n\t\t\t\t<img :src=\"imgs.jiangxiang\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t</div>\r\n";
 
 /***/ })
 /******/ ]);

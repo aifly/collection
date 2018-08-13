@@ -258,7 +258,7 @@
 										this.index++;
 									}
 
-								},4000)
+								},8000)
 
 							}
 							points.map((p,i)=>{
@@ -323,6 +323,7 @@
 
 			obserable.on('hideIndexSubmitBg',data=>{
 				this.showSubmit = data;
+				this.starting = !data;
 			})
 
 

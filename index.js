@@ -2,6 +2,7 @@ import Vue from "vue";
 import './components/css/index.css';
 import Index from './components/index/index';
 import Form from './components/form/index';
+import Requirement from './components/requirement/index';
 import Obserable from './components/lib/obserable';
 import {
 	imgs
@@ -56,6 +57,7 @@ new Vue({
 		template: `<div>
 		<Index :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Index>
 		<Form :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Form>
+		<Requirement :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Requirement>
 		<div  v-if='!loaded' :style='{background:"#158ae4"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
 				 <a href="#">
@@ -118,7 +120,8 @@ new Vue({
 	},
 	components: {
 		Index,
-		Form
+		Form,
+		Requirement
 		
 	},
 	mounted() {

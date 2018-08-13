@@ -33,7 +33,7 @@
 					</div>
 					<div class="zmiti-tips">
 						<div>
-							提交名称要求<img :src="imgs.help" @touchstart='imgStart' v-tap='[showDialog,imgs.yaoqiu]'/>
+							提交名称要求<img :src="imgs.help" @touchstart='imgStart' v-tap='[showYaoqiu]'/>
 						</div>
 						<div class="" v-tap='[toggleMeanInput]'>
 							填写名字的含义 
@@ -65,7 +65,7 @@
 				<div class="zmiti-car">
 					<img :src="imgs.car" alt="">
 
-					<div class="zmiti-car-tips" v-tap='[showDialog,imgs.jiangxiang]'>
+					<div class="zmiti-car-tips" v-tap='[showJX]'>
 						<div>
 							<ul>
 								<li>快来给我起名吧</li>
@@ -161,7 +161,31 @@
 	                return true;
 	            }
 	        },
-
+			showYaoqiu(){
+				this.obserable.trigger({
+					type:'hideForm'
+				});
+				this.obserable.trigger({
+					type:'hideIndexSubmitBg',
+					data:false
+				});
+				this.obserable.trigger({
+					type:'toggleRequirement',
+					data:true
+				})
+			},
+			showJX(){
+				this.obserable.trigger({
+					type:'hideForm'
+				});
+				this.obserable.trigger({
+					type:'hideIndexSubmitBg',
+					data:false
+				});
+				this.obserable.trigger({
+					type:'showByJX'
+				})
+			},
 			regEmail(){
 				var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
 				return reg.test(this.formUser.email);
@@ -210,6 +234,7 @@
 					if(name){
 						$.ajax({
 							url:'http://120.26.42.181:8016/api.ashx?act=postlunarrover',
+							url:'http://open.api.zhongguowangshi.com/api.ashx?act=postlunarrover',
 							 dataType: 'JSON',
 		            		//contentType: "application/json",
 							data:JSON.stringify({
@@ -222,6 +247,7 @@
 							}),
 							type:'post',
 							success(data){
+								//console.log(data);
 								if(typeof data === 'string'){
 									data = JSON.parse(data);
 								}
@@ -306,10 +332,6 @@
 			obserable.on('hideForm',()=>{
 				this.show = false;
 			})
-			
-			
-			  
-
 
 			window.onresize = ()=>{
 				setTimeout(() => {

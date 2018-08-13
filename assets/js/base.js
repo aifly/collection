@@ -5,12 +5,12 @@
 	indexBg: './assets/images/index-bg.jpg',
 	point:'./assets/images/star.png',
 	mount:'./assets/images/mount.png',
-	title:'./assets/images/title.png',
+	title:'./assets/images/title1.png',
 	moon:'./assets/images/moon.png',
 	moon1:'./assets/images/moon1.png',
 	plane:'./assets/images/plane.png',
 	light:'./assets/images/light.png',
-	subtitle:'./assets/images/subtitle.png',
+	subtitle:'./assets/images/subtitle1.png',
 	submitBg:'./assets/images/submit-bg.png',
 	submitBtn:'./assets/images/submit-btn.png',
 	send:'./assets/images/send.png',
@@ -21,8 +21,8 @@
 	start:'./assets/images/start.png',
 	cloud:'./assets/images/cloud.png',
 	organization:'./assets/images/organization.png',
-	jiangxiang:'./assets/images/jiangxiang.png',
-	yaoqiu:'./assets/images/yaoqiu.png',
+	jiangxiang:'./assets/images/jiangxiang1.png',
+	//yaoqiu:'./assets/images/yaoqiu.png',
 	car:'./assets/images/car.png',
 	jiasu:'./assets/images/jiasu.png',
 	jiasu1:'./assets/images/jiasu1.png',
@@ -30,6 +30,21 @@
 }
 
 var organizationArr = [
+	{
+		key: 'jianjie',
+		title: '活动简介',
+		type: 'text',
+		content: ['月球是地球唯一的天然卫星，陪伴地球已经超过45亿年。中国探月工程在圆满完成嫦娥一号、嫦娥二号、嫦娥三号和探月工程三期再入返回试验任务以后，计划于今年12月实施嫦娥四号任务。中国探月嫦娥四号任务，将首次探访神秘的月球背面，在我们看不见的地方实现软着陆和巡视探测，这将开辟人类月球探测的新领域。探月与航天工程中心通过新华社客户端在全球开展嫦娥四号月球车征名活动。']
+	}, {
+		key: 'jieduan',
+		title: '征名活动分四个阶段',
+		type: 'text',
+		content: ['第一阶段：8月上旬至8月25日，登录新华社客户端，在线提交名称。',
+				'第二阶段：8月下旬至9月上旬，评委会组织初评，遴选十强。',
+				'第三阶段：9月上旬至9月25日，网络投票，评选前三。',
+				'第四阶段：9月下旬，确定三甲，公布结果。'
+		]
+	},
 	{
 		key:'huodong',
 		title: '活动说明',
@@ -53,7 +68,7 @@ var organizationArr = [
 		title: "主办组织机构",
 		items: [ {
 				title: '承办单位',
-				units: ['嫦娥奔月航天科技（北京）有限责任公司', '新华社客户端', '中央电视台央视新闻客户端', '中国网', '腾讯科技（北京）有限公司', '国家航天局网', '中国探月与深空探测网', '上海中宣国际新思维广告有限公司等']
+				units: ['嫦娥奔月航天科技（北京）有限责任公司', '新华社客户端', '央视新闻客户端', '中国网', '腾讯科技（北京）有限公司', '国家航天局网', '中国探月与深空探测网', '上海中宣国际新思维广告有限公司等']
 			}, {
 				title: '赞助企业',
 				units: ['东莞美驰图实业有限公司']
@@ -71,6 +86,13 @@ var organizationArr = [
 	},
 ]
 
+
+var yaoqiuList = [
+	'1.符合国家商标法的有关规定，具有时代性、延伸性和较好的文化内涵体现中华民族的文化特征。',
+	'2.符合中国探月工程理念和工程特点文字简练，便于记忆， 易于传播。',
+	'3.提交名称需包括不多于300字的创意说明和背景阐述， 否则视为无效投稿。',
+	'4.参选人提交名称不得超过3个，不要重复提交已征集到的相同名称； 如果征集的名称相同，在遴选阶段将以时间先后的顺序， 选取最早提交者。 '
+]
 var arr = [];
 
 
