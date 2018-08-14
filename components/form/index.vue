@@ -238,9 +238,9 @@
 							 dataType: 'JSON',
 		            		//contentType: "application/json",
 							data:JSON.stringify({
-								username:name,
+								username:s.username,
 								mobile:s.mobile,
-								name:s.username,
+								name:name,
 								meaning:s.meaning,
 								timestamp:d,
 								signature:SHA1('jlsjflasl7887KJJLJ988welKds&'+s.mobile+'&'+d)
