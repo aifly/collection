@@ -253,6 +253,8 @@ body {
   background: transparent;
   border: none;
   color: #fdeb59;
+  padding: 0;
+  margin: 0;
 }
 
 .zmiti-form-main-ui .zmiti-tips {
