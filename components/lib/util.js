@@ -47,7 +47,7 @@ var zmitiUtil = {
 			data:{
 				action: "getWeixinConfig",
 				debug:0,
-				site: "xhsh5",
+				site: "xinhuashetest",
 				url: code_durl,
 				callback: "jsonFlickrFeed"
 			},
