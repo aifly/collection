@@ -38,7 +38,8 @@
 </head>
 <body>
 	<div id="app"></div>
-	
+	<script src='./assets/js/base.js'></script>
+	<script src="//openapi.zhongguowangshi.com/wxHandler.ashx?callback=wxHandlercallback&action=getWeixinConfig&debug=1&site=xhsh5"></script>
 	<script>
 		function loadScript(src){
 			var script = document.createElement('script');
@@ -53,7 +54,7 @@
   		//
 		  /*
 		  */
-		  loadScript('./assets/js/base.js');
+		 
 		   
 		  loadScript('./assets/js/index.js');
 	</script>

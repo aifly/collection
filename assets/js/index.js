@@ -12510,6 +12510,8 @@
 
 			var s = this;
 
+			return;
+
 			var img = window.baseUrl + '/assets/images/300.jpg';
 			var appId = this.wxInfo().wxappid;
 			var durl = url || location.href.split('#')[0];

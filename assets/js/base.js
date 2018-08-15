@@ -1,4 +1,4 @@
-﻿var imgs = {
+var imgs = {
 	logo: './assets/images/logo.png',
 	logo1: './assets/images/logo1.png',
 	logo2: './assets/images/logo2.png',
@@ -27,6 +27,20 @@
 	jiasu:'./assets/images/jiasu.png',
 	jiasu1:'./assets/images/jiasu1.png',
 	submitSuccess:'./assets/images/submit-success.png',
+}
+
+function wxHandlercallback(res) {
+  wx.config({debug:false, appId:res.appId, timestamp:res.timestamp, nonceStr:res.nonceStr, signature:res.signature, jsApiList:["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareQZone","onMenuShareWeibo"]});
+  wx.ready(function() {
+    var config = {
+      title: document.title,
+      desc: window.desc,
+      link: document.URL,
+      imgUrl: 'http://h5.zhongguowangshi.com/h5/collection/assets/images/300.jpg'
+    };
+    wx.onMenuShareAppMessage(config);
+    wx.onMenuShareTimeline(config);
+  });
 }
 
 var organizationArr = [
