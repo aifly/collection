@@ -146,6 +146,11 @@
 			toggleMeanInput(){
 				this.showMeanInput = !this.showMeanInput;
 				setTimeout(()=>{
+					setTimeout(() => {
+						this.scroll.scrollTo(0,this.showMeanInput?this.scroll.wrapperHeight  - this.scroll.scrollerHeight:0,1);
+						this.scroll.refresh();
+					}, 100);
+					this.scroll.scrollTo(0,this.showMeanInput?this.scroll.wrapperHeight  - this.scroll.scrollerHeight:0,1);
 					this.scroll.refresh();
 				},400)
 			},
@@ -324,7 +329,9 @@
 				setTimeout(() => {
 					this.initCanvas();
 					this.scroll = new IScroll(this.$refs['page'],{
-						scrollbars:true
+						scrollbars:true,
+						probeType: 3,
+						bounce:false
 					});
 				}, 100);
 			})

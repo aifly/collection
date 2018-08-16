@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>新华社分享测试</title>
+</head>
+<body>
+新华社分享测试
+<script src="//res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+<script>
+function wxHandlercallback(res) {
+  wx.config({debug:false, appId:res.appId, timestamp:res.timestamp, nonceStr:res.nonceStr, signature:res.signature, jsApiList:["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareQZone","onMenuShareWeibo"]});
+  wx.ready(function() {
+   
+    var config = {
+      title: "分享标题",
+      desc: "分享描述",
+      link: document.URL,
+      imgUrl: "https://img-xhpfm.zhongguowangshi.com/360/20180709/963536cf45364a8582c6414583cd13c1.jpeg@640w_1e_1c_80Q_1x.jpg"
+    };
+    wx.onMenuShareAppMessage(config);
+    wx.onMenuShareTimeline(config);
+  });
+}
+</script>
+<script src="//openapi.zhongguowangshi.com/wxHandler.ashx?callback=wxHandlercallback&action=getWeixinConfig&debug=1&site=xhsh5"></script>
+</body>
+</html>

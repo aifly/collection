@@ -284,7 +284,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
-	 * Vue.js v2.5.17
+	 * Vue.js v2.5.16
 	 * (c) 2014-2018 Evan You
 	 * Released under the MIT License.
 	 */
@@ -5360,7 +5360,7 @@
 	  value: FunctionalRenderContext
 	});
 
-	Vue.version = '2.5.17';
+	Vue.version = '2.5.16';
 
 	/*  */
 
@@ -11237,18 +11237,15 @@
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
-	            (typeof self !== "undefined" && self) ||
-	            window;
-	var apply = Function.prototype.apply;
+	/* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
 
 	// DOM APIs, for completeness
 
 	exports.setTimeout = function() {
-	  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
 	};
 	exports.setInterval = function() {
-	  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
 	};
 	exports.clearTimeout =
 	exports.clearInterval = function(timeout) {
@@ -11263,7 +11260,7 @@
 	}
 	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
 	Timeout.prototype.close = function() {
-	  this._clearFn.call(scope, this._id);
+	  this._clearFn.call(window, this._id);
 	};
 
 	// Does not start the time, just sets up the members needed.
@@ -11291,7 +11288,7 @@
 
 	// setimmediate attaches itself to the global object
 	__webpack_require__(3);
-	// On some exotic environments, it's not clear which object `setimmediate` was
+	// On some exotic environments, it's not clear which object `setimmeidate` was
 	// able to install onto.  Search each possibility in the same order as the
 	// `setimmediate` library.
 	exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
@@ -12048,7 +12045,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\collection\\components\\index\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\index\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22736,7 +22733,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\collection\\components\\form\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\form\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22917,6 +22914,11 @@
 
 				this.showMeanInput = !this.showMeanInput;
 				setTimeout(function () {
+					setTimeout(function () {
+						_this.scroll.scrollTo(0, _this.showMeanInput ? _this.scroll.wrapperHeight - _this.scroll.scrollerHeight : 0, 1);
+						_this.scroll.refresh();
+					}, 100);
+					_this.scroll.scrollTo(0, _this.showMeanInput ? _this.scroll.wrapperHeight - _this.scroll.scrollerHeight : 0, 1);
 					_this.scroll.refresh();
 				}, 400);
 			},
@@ -23093,7 +23095,9 @@
 				setTimeout(function () {
 					_this4.initCanvas();
 					_this4.scroll = new _iscroll2['default'](_this4.$refs['page'], {
-						scrollbars: true
+						scrollbars: true,
+						probeType: 3,
+						bounce: false
 					});
 				}, 100);
 			});
@@ -25270,7 +25274,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\collection\\components\\toast\\toast.vue"
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\toast\\toast.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -25294,8 +25298,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ea170124&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ea170124&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-21b003e4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-21b003e4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -25450,7 +25454,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\collection\\components\\requirement\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\collection\\components\\requirement\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -25598,7 +25602,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n}\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis;\r\n}\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem;\r\n}\r\n\r\n.zmiti-play.rotate {\r\n  -webkit-animation: rotate 5s linear infinite;\r\n  animation: rotate 5s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.zmiti-requirement-main-ui {\r\n  overflow: hidden;\r\n  width: 750px !important;\r\n  left: 50% !important;\r\n  margin-left: -375px;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  -webkit-transition: 0.8s;\r\n  transition: 0.8s;\r\n}\r\n\r\n.zmiti-requirement-main-ui.show {\r\n  opacity: 1;\r\n  z-index: 500;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization {\r\n  position: relative;\r\n  border: 1px solid #50fefb;\r\n  width: 680px;\r\n  margin-top: 40px;\r\n  z-index: 100;\r\n  background: rgba(3, 3, 46, 0.8);\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-jx {\r\n  width: 80%;\r\n  margin: 20px auto;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-back {\r\n  width: 30px;\r\n  height: 30px;\r\n  position: absolute;\r\n  -webkit-transform: rotate(45deg);\r\n  transform: rotate(45deg);\r\n  top: -140px;\r\n  padding: 30px;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-back:before {\r\n  content: '';\r\n  position: absolute;\r\n  border: 3px solid #40fffb;\r\n  border-right: none;\r\n  border-top: none;\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization > span {\r\n  width: 30px;\r\n  height: 30px;\r\n  border: 3px solid #40fffb;\r\n  position: absolute;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(1) {\r\n  left: -1px;\r\n  top: -1px;\r\n  border-right: none;\r\n  border-bottom: none;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(2) {\r\n  right: -1px;\r\n  top: -1px;\r\n  border-left: none;\r\n  border-bottom: none;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(3) {\r\n  bottom: -1px;\r\n  left: -1px;\r\n  border-right: none;\r\n  border-top: none;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(4) {\r\n  right: -1px;\r\n  bottom: -1px;\r\n  border-left: none;\r\n  border-top: none;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization:before {\r\n  content: '';\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  left: 0;\r\n  top: 0;\r\n  box-shadow: 0 0 10px rgba(80, 254, 251, 0.5), 0 0 10px rgba(80, 254, 251, 0.5) inset;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-organization-title {\r\n  position: absolute;\r\n  width: 70%;\r\n  left: 15%;\r\n  top: -42px;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-organization-title span {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  text-align: center;\r\n  left: 0;\r\n  top: 0;\r\n  color: #fde966;\r\n  line-height: 80px;\r\n  font-size: 34px;\r\n  font-weight: bold;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-units {\r\n  width: 92%;\r\n  margin: 30px auto;\r\n  font-size: 28px;\r\n  line-height: 54px;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-pack: justify;\r\n  -webkit-box-align: start;\r\n  color: #40fffb;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-title {\r\n  color: #fde966;\r\n  width: 140px;\r\n  margin: 15px 0;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-names {\r\n  color: #40fffb;\r\n  -webkit-box-flex: 1;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-names div {\r\n  margin: 15px 0;\r\n}\r\n\r\n.zmiti-requirement-main-ui .zmiti-remark {\r\n  color: #40fffb;\r\n  width: 90%;\r\n  margin: 20px auto;\r\n  line-height: 50px;\r\n  text-indent: 2em;\r\n}\r\n", ""]);
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.zmiti-requirement-main-ui {\n  overflow: hidden;\n  width: 750px !important;\n  left: 50% !important;\n  margin-left: -375px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  opacity: 0;\n  z-index: -1;\n  -webkit-transition: 0.8s;\n  transition: 0.8s;\n}\n\n.zmiti-requirement-main-ui.show {\n  opacity: 1;\n  z-index: 500;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization {\n  position: relative;\n  border: 1px solid #50fefb;\n  width: 680px;\n  margin-top: 40px;\n  z-index: 100;\n  background: rgba(3, 3, 46, 0.8);\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-jx {\n  width: 80%;\n  margin: 20px auto;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-back {\n  width: 30px;\n  height: 30px;\n  position: absolute;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n  top: -140px;\n  padding: 30px;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-back:before {\n  content: '';\n  position: absolute;\n  border: 3px solid #40fffb;\n  border-right: none;\n  border-top: none;\n  width: 30px;\n  height: 30px;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span {\n  width: 30px;\n  height: 30px;\n  border: 3px solid #40fffb;\n  position: absolute;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(1) {\n  left: -1px;\n  top: -1px;\n  border-right: none;\n  border-bottom: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(2) {\n  right: -1px;\n  top: -1px;\n  border-left: none;\n  border-bottom: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(3) {\n  bottom: -1px;\n  left: -1px;\n  border-right: none;\n  border-top: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization > span:nth-of-type(4) {\n  right: -1px;\n  bottom: -1px;\n  border-left: none;\n  border-top: none;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization:before {\n  content: '';\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  box-shadow: 0 0 10px rgba(80, 254, 251, 0.5), 0 0 10px rgba(80, 254, 251, 0.5) inset;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-organization-title {\n  position: absolute;\n  width: 70%;\n  left: 15%;\n  top: -42px;\n}\n\n.zmiti-requirement-main-ui .zmiti-organization .zmiti-organization-title span {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  left: 0;\n  top: 0;\n  color: #fde966;\n  line-height: 80px;\n  font-size: 34px;\n  font-weight: bold;\n}\n\n.zmiti-requirement-main-ui .zmiti-units {\n  width: 92%;\n  margin: 30px auto;\n  font-size: 28px;\n  line-height: 54px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  -webkit-box-pack: justify;\n  -webkit-box-align: start;\n  color: #40fffb;\n}\n\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-title {\n  color: #fde966;\n  width: 140px;\n  margin: 15px 0;\n}\n\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-names {\n  color: #40fffb;\n  -webkit-box-flex: 1;\n}\n\n.zmiti-requirement-main-ui .zmiti-units .zmiti-unit-names div {\n  margin: 15px 0;\n}\n\n.zmiti-requirement-main-ui .zmiti-remark {\n  color: #40fffb;\n  width: 90%;\n  margin: 20px auto;\n  line-height: 50px;\n  text-indent: 2em;\n}\n", ""]);
 
 	// exports
 
